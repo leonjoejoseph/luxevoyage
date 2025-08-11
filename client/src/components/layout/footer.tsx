@@ -18,14 +18,14 @@ const quickLinks = [
 const contactInfo = [
   { icon: Phone, text: "+1 (555) 123-4567" },
   { icon: Mail, text: "concierge@luxevoyage.com" },
-  { icon: MapPin, text: "Beverly Hills, CA" },
+  { icon: MapPin, text: "CSK, Kuwait" },
 ];
 
 export default function Footer() {
   return (
     <footer className="bg-navy-deep text-white py-16">
       <div className="container mx-auto px-6">
-        <div className="grid md:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-3 gap-8">
           {/* Brand */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -100,27 +100,7 @@ export default function Footer() {
             </ul>
           </motion.div>
 
-          {/* Newsletter */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <h4 className="text-xl font-serif font-semibold mb-4">Stay Connected</h4>
-            <p className="text-gray-300 mb-4">
-              Get the latest travel inspiration and exclusive offers.
-            </p>
-            <div className="flex">
-              <input
-                type="email"
-                placeholder="Your email"
-                className="flex-1 px-4 py-2 rounded-l-full bg-white/10 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gold-accent"
-              />
-              <button className="px-6 py-2 bg-gold-accent text-navy-deep rounded-r-full font-semibold hover:bg-white transition-colors duration-300">
-                Subscribe
-              </button>
-            </div>
-          </motion.div>
+
         </div>
 
         {/* Bottom Bar */}
