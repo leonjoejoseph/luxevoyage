@@ -1,0 +1,63 @@
+Transform my LuxeVoyage travel agency project into a premium, multi-page, interactive website with advanced styling and animations.
+
+Pages:
+
+Home – Hero section with parallax background, brand logo, tagline, call-to-action button. Showcase 3 destinations (Santorini, Kyoto, Queenstown) with hover effects and scroll-triggered animations. Include a “Why Travel with Us” section with icons.
+
+Packages – Display luxury travel packages in a responsive grid with filters (by price, location, or duration). Include expandable details (click to reveal more info) using JavaScript. Add a smooth tab or carousel for featured deals.
+
+Contact – Contact form with validation, embedded Google Map, and social media icons. Include a small project disclaimer at the bottom.
+
+Design & Styling Requirements:
+
+Backgrounds: High-quality, royalty-free travel photos with subtle gradient overlays for text readability. Parallax scrolling for hero and section backgrounds.
+
+Typography: Elegant serif for headings (Playfair Display or similar), clean sans-serif for body (Inter, Lato, or similar).
+
+Color Palette: Deep navy (#0b1d2a), gold accents (#d4af37), white, and soft gradient blues for highlights.
+
+CSS Effects: Glassmorphism cards, box shadows, hover zoom effects on images, gradient buttons with smooth transitions.
+
+Animations:
+
+Scroll-triggered fade-ins & slide-ups (using Intersection Observer or AOS library).
+
+Button hover animations with subtle scaling and glow.
+
+Sticky navigation that changes background color on scroll.
+
+Smooth page transitions (fade between pages).
+
+Responsiveness: Fully optimized for desktop, tablet, and mobile with flexbox and grid layouts.
+
+JavaScript Functionalities:
+
+Mobile hamburger menu with slide-in animation.
+
+Smooth scrolling to anchor links.
+
+Interactive gallery lightbox for images.
+
+Package filtering without page reload.
+
+Animated counters for statistics (e.g., “Destinations Covered,” “Happy Travelers”).
+
+Contact form validation with friendly error messages.
+
+Extra Polish:
+
+Preloader animation (e.g., logo fade-in before showing page).
+
+Subtle background video option for hero section.
+
+Floating “Back to Top” button with smooth scroll.
+
+Code Requirements:
+
+Clean, semantic HTML structure.
+
+Organized CSS using variables for colors and fonts.
+
+Modular JavaScript for maintainability.
+
+Fully commented code for easy understanding.
