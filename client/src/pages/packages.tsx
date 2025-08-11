@@ -16,7 +16,7 @@ export default function Packages() {
     >
       {/* Hero Section */}
       <ParallaxHero
-        backgroundImage="https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+        backgroundImage="https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2080&q=80"
         title="Luxury Packages"
         subtitle="Curated experiences for the discerning traveler"
         height="h-96"

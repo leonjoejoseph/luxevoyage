@@ -17,6 +17,7 @@ const contactFormSchema = z.object({
   email: z.string().email("Please enter a valid email address"),
   phone: z.string().optional(),
   destination: z.string().optional(),
+  customDestination: z.string().optional(),
   travelDate: z.string().optional(),
   budget: z.string().optional(),
   message: z.string().optional(),
@@ -36,6 +37,7 @@ export default function ContactForm() {
       email: "",
       phone: "",
       destination: "",
+      customDestination: "",
       travelDate: "",
       budget: "",
       message: "",
@@ -45,22 +47,42 @@ export default function ContactForm() {
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
     
-    // Simulate form submission
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      // Prepare email data with proper destination handling
+      const destination = data.destination === "other" ? data.customDestination : data.destination;
+      const emailData = {
+        ...data,
+        finalDestination: destination,
+        to: "luxevoyage@deepyinc.com",
+        subject: `New Travel Inquiry from ${data.firstName} ${data.lastName}`,
+      };
       
-      console.log("Contact form submitted:", data);
+      // Send email via mailto (opens user's email client)
+      const mailtoLink = `mailto:luxevoyage@deepyinc.com?subject=Travel Inquiry from ${encodeURIComponent(data.firstName + ' ' + data.lastName)}&body=${encodeURIComponent(
+        `Name: ${data.firstName} ${data.lastName}\n` +
+        `Email: ${data.email}\n` +
+        `Phone: ${data.phone || 'Not provided'}\n` +
+        `Destination: ${destination || 'Not specified'}\n` +
+        `Travel Date: ${data.travelDate || 'Not specified'}\n` +
+        `Budget: ${data.budget || 'Not specified'}\n\n` +
+        `Message:\n${data.message || 'No additional message'}`
+      )}`;
+      
+      // Open the user's email client
+      window.location.href = mailtoLink;
+      
+      console.log("Contact form submitted:", emailData);
       
       toast({
-        title: "Message Sent!",
-        description: "Thank you for your inquiry! We will contact you within 24 hours to plan your luxury journey.",
+        title: "Email Client Opened!",
+        description: "Your email client has been opened with the inquiry details. Please send the email to complete your request.",
       });
       
       form.reset();
     } catch (error) {
       toast({
         title: "Error",
-        description: "There was an error sending your message. Please try again.",
+        description: "There was an error processing your request. Please try again.",
         variant: "destructive",
       });
     } finally {
@@ -166,6 +188,27 @@ export default function ContactForm() {
                 </FormItem>
               )}
             />
+
+            {/* Custom Destination Field - Only shown when "Other" is selected */}
+            {form.watch("destination") === "other" && (
+              <FormField
+                control={form.control}
+                name="customDestination"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Please specify your destination</FormLabel>
+                    <FormControl>
+                      <Input 
+                        {...field} 
+                        placeholder="Enter your desired destination"
+                        className="focus-visible:ring-gold-accent" 
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            )}
 
             {/* Travel Date */}
             <FormField

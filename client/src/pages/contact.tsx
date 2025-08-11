@@ -13,7 +13,7 @@ export default function Contact() {
     >
       {/* Hero Section */}
       <ParallaxHero
-        backgroundImage="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2126&q=80"
+        backgroundImage="https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
         title="Plan Your Journey"
         subtitle="Let our travel experts create your perfect luxury experience"
         height="h-96"
@@ -31,7 +31,7 @@ export default function Contact() {
           <div className="mt-16 pt-8 border-t border-gray-200 text-center">
             <p className="text-sm text-gray-500">
               <i className="fas fa-info-circle mr-2"></i>
-              This is a demo project created for portfolio purposes. LuxeVoyage is a fictional travel agency.
+              This is a project created for competition purposes. LuxeVoyage is a fictional travel agency.
             </p>
           </div>
         </div>

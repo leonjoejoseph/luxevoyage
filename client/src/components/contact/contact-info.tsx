@@ -6,30 +6,28 @@ const contactItems = [
   {
     icon: Phone,
     label: "Phone",
-    value: "+1 (555) 123-4567",
+    value: "+965 2222 9999",
   },
   {
     icon: Mail,
     label: "Email",
-    value: "concierge@luxevoyage.com",
+    value: "luxevoyage@deepyinc.com",
   },
   {
     icon: MapPin,
     label: "Address",
-    value: "CSK, Kuwait",
+    value: "Carmel School Kuwait",
   },
   {
     icon: Clock,
     label: "Hours",
-    value: "Mon-Fri: 9AM-7PM, Sat-Sun: 10AM-6PM",
+    value: "24/7",
   },
 ];
 
 const socialLinks = [
   { icon: Instagram, href: "https://www.instagram.com/luxe_voyage25/", label: "Instagram" },
-  { icon: Facebook, href: "#", label: "Facebook" },
   { icon: Twitter, href: "https://x.com/luxevoyage25", label: "Twitter" },
-  { icon: Youtube, href: "#", label: "YouTube" },
 ];
 
 export default function ContactInfo() {
@@ -92,14 +90,14 @@ export default function ContactInfo() {
       {/* Embedded Map */}
       <GlassmorphismCard className="p-0 overflow-hidden h-80">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3521.4037822!2d47.9777!3d29.3759!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3fcf85670c8c91%3A0x123456789!2sCSK%2C%20Kuwait!5e0!3m2!1sen!2skw!4v1234567890"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3519.8037822!2d47.9533!3d29.3034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3fcf7fb9aa01ed6b:0x1b77ff4b3a8e5b4f!2sCarmel%20School%20Kuwait!5e0!3m2!1sen!2skw!4v1234567890"
           width="100%"
           height="100%"
           style={{ border: 0 }}
           allowFullScreen
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
-          title="LuxeVoyage Office Location"
+          title="LuxeVoyage Office Location - Carmel School Kuwait"
         />
       </GlassmorphismCard>
     </motion.div>

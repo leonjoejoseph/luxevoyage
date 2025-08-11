@@ -5,8 +5,6 @@ import { Link } from "wouter";
 const socialLinks = [
   { icon: Instagram, href: "https://www.instagram.com/luxe_voyage25/", label: "Instagram" },
   { icon: Twitter, href: "https://x.com/luxevoyage25", label: "Twitter" },
-  { icon: Facebook, href: "#", label: "Facebook" },
-  { icon: Youtube, href: "#", label: "YouTube" },
 ];
 
 const quickLinks = [
@@ -16,9 +14,9 @@ const quickLinks = [
 ];
 
 const contactInfo = [
-  { icon: Phone, text: "+1 (555) 123-4567" },
-  { icon: Mail, text: "concierge@luxevoyage.com" },
-  { icon: MapPin, text: "CSK, Kuwait" },
+  { icon: Phone, text: "+965 2222 9999" },
+  { icon: Mail, text: "luxevoyage@deepyinc.com" },
+  { icon: MapPin, text: "Carmel School Kuwait" },
 ];
 
 export default function Footer() {
@@ -36,7 +34,7 @@ export default function Footer() {
               <span className="text-gold-accent">Luxe</span>Voyage
             </h3>
             <p className="text-gray-300 mb-6">
-              Turning travel dreams into stories — one post at a time. 🌍✈️
+              Crafting extraordinary journeys that redefine luxury travel experiences.
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((social) => {
@@ -110,10 +108,10 @@ export default function Footer() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mt-12 pt-8 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm"
         >
-          <p>© 2024 LuxeVoyage. All rights reserved.</p>
+          <p>© 2025 LuxeVoyage. All rights reserved.</p>
           <p className="mt-2 md:mt-0">
             <i className="fas fa-info-circle mr-2"></i>
-            This is a demo project created for portfolio purposes. LuxeVoyage is a fictional travel agency.
+            This is a project created for competition purposes. LuxeVoyage is a fictional travel agency.
           </p>
         </motion.div>
       </div>
