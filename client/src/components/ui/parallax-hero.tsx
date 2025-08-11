@@ -51,7 +51,13 @@ export default function ParallaxHero({
           className="max-w-4xl mx-auto px-6"
         >
           <h1 className="text-5xl md:text-6xl font-serif font-bold mb-4">
-            {title}
+            {typeof title === 'string' ? (
+              title === "Discover Extraordinary Journeys" ? (
+                <>
+                  Discover Extraordinary <span className="text-gold-accent">Journeys</span>
+                </>
+              ) : title
+            ) : title}
           </h1>
           {subtitle && (
             <p className="text-xl md:text-2xl mb-8">

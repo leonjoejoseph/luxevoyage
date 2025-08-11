@@ -26,9 +26,9 @@ const contactItems = [
 ];
 
 const socialLinks = [
-  { icon: Instagram, href: "#", label: "Instagram" },
+  { icon: Instagram, href: "https://www.instagram.com/luxe_voyage25/", label: "Instagram" },
   { icon: Facebook, href: "#", label: "Facebook" },
-  { icon: Twitter, href: "#", label: "Twitter" },
+  { icon: Twitter, href: "https://x.com/luxevoyage25", label: "Twitter" },
   { icon: Youtube, href: "#", label: "YouTube" },
 ];
 

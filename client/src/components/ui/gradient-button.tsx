@@ -33,7 +33,9 @@ export default function GradientButton({
         sizeClasses[size],
         className
       )}
-      {...props}
+      onClick={props.onClick}
+      disabled={props.disabled}
+      type={props.type}
     >
       {children}
     </motion.button>

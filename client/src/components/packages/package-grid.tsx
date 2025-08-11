@@ -162,7 +162,7 @@ export default function PackageGrid({ activeFilter }: PackageGridProps) {
       animate="visible"
       className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
     >
-      <AnimatePresence mode="wait">
+      <AnimatePresence>
         {filteredPackages.map((pkg) => (
           <motion.div
             key={pkg.id}

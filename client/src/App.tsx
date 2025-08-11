@@ -13,6 +13,7 @@ import NotFound from "@/pages/not-found";
 
 // Layout components
 import Navbar from "@/components/layout/navbar";
+import Footer from "@/components/layout/footer";
 import Preloader from "@/components/layout/preloader";
 import BackToTop from "@/components/layout/back-to-top";
 import Lightbox from "@/components/ui/lightbox";
@@ -50,6 +51,7 @@ function App() {
           <main>
             <Router />
           </main>
+          <Footer />
           
           <BackToTop />
           <Lightbox />

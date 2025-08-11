@@ -12,11 +12,7 @@ export default function HeroSection() {
   return (
     <ParallaxHero
       backgroundImage="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
-      title={
-        <>
-          Discover Extraordinary <span className="text-gold-accent">Journeys</span>
-        </>
-      }
+      title="Discover Extraordinary Journeys"
       subtitle="Curated luxury travel experiences that transform the way you see the world"
     >
       <motion.div
