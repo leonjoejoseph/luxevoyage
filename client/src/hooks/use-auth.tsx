@@ -1,5 +1,7 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { useLocation } from 'wouter';
+import { useSessionTimeout } from '@/hooks/use-session-timeout';
+import { useToast } from '@/hooks/use-toast';
 
 interface User {
   id: string;
@@ -23,6 +25,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [, setLocation] = useLocation();
+  const { toast } = useToast();
 
   useEffect(() => {
     checkAuth();
@@ -76,10 +79,28 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     } catch (error) {
       console.error('Logout error:', error);
     } finally {
+      localStorage.removeItem('lastActivity');
       setUser(null);
       setLocation('/login');
     }
   };
+
+  // Handle auto-logout on session timeout
+  const handleSessionTimeout = () => {
+    localStorage.removeItem('lastActivity');
+    setUser(null);
+    toast({
+      title: "Session Expired",
+      description: "You've been automatically signed out after 2 months of inactivity.",
+      variant: "destructive",
+    });
+    setLocation('/login');
+  };
+
+  // Use session timeout hook when user is logged in
+  useSessionTimeout({
+    onTimeout: handleSessionTimeout
+  });
 
   const value = {
     user,

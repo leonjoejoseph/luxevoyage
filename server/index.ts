@@ -1,10 +1,23 @@
 import express, { type Request, Response, NextFunction } from "express";
+import session from "express-session";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+// Configure sessions
+app.use(session({
+  secret: process.env.SESSION_SECRET || 'luxevoyage-secret-key-change-in-production',
+  resave: false,
+  saveUninitialized: false,
+  cookie: { 
+    secure: false, // Set to true if using HTTPS in production
+    httpOnly: true,
+    maxAge: 2 * 30 * 24 * 60 * 60 * 1000 // 2 months in milliseconds (60 days)
+  }
+}));
 
 app.use((req, res, next) => {
   const start = Date.now();

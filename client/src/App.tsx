@@ -18,6 +18,7 @@ import Footer from "@/components/layout/footer";
 import Preloader from "@/components/layout/preloader";
 import BackToTop from "@/components/layout/back-to-top";
 import Lightbox from "@/components/ui/lightbox";
+import AIChatbot from "@/components/ui/ai-chatbot";
 
 function Router() {
   return (
@@ -57,6 +58,7 @@ function App() {
           
           <BackToTop />
           <Lightbox />
+          <AIChatbot />
           <Toaster />
         </div>
       </TooltipProvider>

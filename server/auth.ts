@@ -24,10 +24,10 @@ export class AuthService {
     return randomBytes(16).toString('hex');
   }
 
-  // Calculate session expiration (7 days from now)
+  // Calculate session expiration (2 months from now)
   static getSessionExpiration(): Date {
     const expiration = new Date();
-    expiration.setDate(expiration.getDate() + 7);
+    expiration.setMonth(expiration.getMonth() + 2);
     return expiration;
   }
 

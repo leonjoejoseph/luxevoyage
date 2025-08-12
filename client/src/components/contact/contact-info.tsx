@@ -16,7 +16,7 @@ const contactItems = [
   {
     icon: MapPin,
     label: "Address",
-    value: "Carmel School Kuwait",
+    value: "Carmel Indian School, Al Farwaniyah",
   },
   {
     icon: Clock,
@@ -90,14 +90,14 @@ export default function ContactInfo() {
       {/* Embedded Map */}
       <GlassmorphismCard className="p-0 overflow-hidden h-80">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3519.8037822!2d47.9533!3d29.3034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3fcf7fb9aa01ed6b:0x1b77ff4b3a8e5b4f!2sCarmel%20School%20Kuwait!5e0!3m2!1sen!2skw!4v1234567890"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3536.267!2d47.976!3d29.309!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3fcf85b5a5b5a5b5%3A0x5b5b5b5b5b5b5b5b!2sCarmel%20Indian%20School%2C%20Al%20Farwaniyah!5e0!3m2!1sen!2skw!4v1234567890"
           width="100%"
           height="100%"
           style={{ border: 0 }}
           allowFullScreen
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
-          title="LuxeVoyage Office Location - Carmel School Kuwait"
+          title="LuxeVoyage Office Location - Carmel Indian School, Al Farwaniyah"
         />
       </GlassmorphismCard>
     </motion.div>

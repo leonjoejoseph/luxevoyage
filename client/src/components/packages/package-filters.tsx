@@ -10,6 +10,7 @@ const filters = [
   { key: "all", label: "All Packages" },
   { key: "budget", label: "Budget Friendly" },
   { key: "luxury", label: "Ultra Luxury" },
+  { key: "private", label: "Private Tours" },
   { key: "adventure", label: "Adventure" },
   { key: "cultural", label: "Cultural" },
 ];

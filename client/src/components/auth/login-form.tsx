@@ -173,7 +173,7 @@ export default function AuthForm({ onSuccess }: AuthFormProps) {
                     type="email"
                     placeholder="your@email.com"
                     {...loginForm.register("email")}
-                    className="pl-10 bg-navy-deep/50 border-white/20 text-white placeholder-white/50 focus:border-gold-accent"
+                    className="pl-10 bg-white/90 border-white/20 text-black placeholder-gray-500 focus:border-gold-accent"
                     data-testid="input-login-email"
                   />
                 </div>
@@ -191,7 +191,7 @@ export default function AuthForm({ onSuccess }: AuthFormProps) {
                     type={showPassword ? "text" : "password"}
                     placeholder="Enter your password"
                     {...loginForm.register("password")}
-                    className="pl-10 pr-10 bg-navy-deep/50 border-white/20 text-white placeholder-white/50 focus:border-gold-accent"
+                    className="pl-10 pr-10 bg-white/90 border-white/20 text-black placeholder-gray-500 focus:border-gold-accent"
                     data-testid="input-login-password"
                   />
                   <button
@@ -229,7 +229,7 @@ export default function AuthForm({ onSuccess }: AuthFormProps) {
                       type="text"
                       placeholder="John"
                       {...registerForm.register("firstName")}
-                      className="pl-10 bg-navy-deep/50 border-white/20 text-white placeholder-white/50 focus:border-gold-accent"
+                      className="pl-10 bg-white/90 border-white/20 text-black placeholder-gray-500 focus:border-gold-accent"
                       data-testid="input-register-firstName"
                     />
                   </div>
@@ -247,7 +247,7 @@ export default function AuthForm({ onSuccess }: AuthFormProps) {
                       type="text"
                       placeholder="Doe"
                       {...registerForm.register("lastName")}
-                      className="pl-10 bg-navy-deep/50 border-white/20 text-white placeholder-white/50 focus:border-gold-accent"
+                      className="pl-10 bg-white/90 border-white/20 text-black placeholder-gray-500 focus:border-gold-accent"
                       data-testid="input-register-lastName"
                     />
                   </div>
@@ -266,7 +266,7 @@ export default function AuthForm({ onSuccess }: AuthFormProps) {
                     type="email"
                     placeholder="john@example.com"
                     {...registerForm.register("email")}
-                    className="pl-10 bg-navy-deep/50 border-white/20 text-white placeholder-white/50 focus:border-gold-accent"
+                    className="pl-10 bg-white/90 border-white/20 text-black placeholder-gray-500 focus:border-gold-accent"
                     data-testid="input-register-email"
                   />
                 </div>
@@ -284,7 +284,7 @@ export default function AuthForm({ onSuccess }: AuthFormProps) {
                     type={showPassword ? "text" : "password"}
                     placeholder="Create a secure password"
                     {...registerForm.register("password")}
-                    className="pl-10 pr-10 bg-navy-deep/50 border-white/20 text-white placeholder-white/50 focus:border-gold-accent"
+                    className="pl-10 pr-10 bg-white/90 border-white/20 text-black placeholder-gray-500 focus:border-gold-accent"
                     data-testid="input-register-password"
                   />
                   <button
@@ -310,7 +310,7 @@ export default function AuthForm({ onSuccess }: AuthFormProps) {
                     type={showConfirmPassword ? "text" : "password"}
                     placeholder="Confirm your password"
                     {...registerForm.register("confirmPassword")}
-                    className="pl-10 pr-10 bg-navy-deep/50 border-white/20 text-white placeholder-white/50 focus:border-gold-accent"
+                    className="pl-10 pr-10 bg-white/90 border-white/20 text-black placeholder-gray-500 focus:border-gold-accent"
                     data-testid="input-register-confirmPassword"
                   />
                   <button

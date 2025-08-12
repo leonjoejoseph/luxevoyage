@@ -46,16 +46,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const expiresAt = AuthService.getSessionExpiration();
       await storage.createSession(user.id, sessionId, expiresAt);
 
-      // Store user in session (simplified in-memory session)
-      (req as any).sessionData = {
-        user: {
-          id: user.id,
-          email: user.email,
-          firstName: user.firstName,
-          lastName: user.lastName,
-          isVerified: user.isVerified
-        },
-        sessionId: sessionId
+      // Store user in express session
+      req.session.user = {
+        id: user.id,
+        email: user.email,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        isVerified: user.isVerified
       };
 
       res.json({
@@ -114,16 +111,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const expiresAt = AuthService.getSessionExpiration();
       await storage.createSession(user.id, sessionId, expiresAt);
 
-      // Store user in session
-      (req as any).sessionData = {
-        user: {
-          id: user.id,
-          email: user.email,
-          firstName: user.firstName,
-          lastName: user.lastName,
-          isVerified: user.isVerified
-        },
-        sessionId: sessionId
+      // Store user in express session
+      req.session.user = {
+        id: user.id,
+        email: user.email,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        isVerified: user.isVerified
       };
 
       res.json({
@@ -149,12 +143,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Logout endpoint
   app.post("/api/auth/logout", async (req, res) => {
     try {
-      const sessionData = (req as any).sessionData;
-      if (sessionData?.sessionId) {
-        await storage.deleteSession(sessionData.sessionId);
+      if (req.session.user) {
+        // Clean up session
+        req.session.user = null;
+        req.session.destroy(() => {});
       }
-      
-      (req as any).sessionData = null;
       
       res.json({
         success: true,
@@ -172,8 +165,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Get current user endpoint
   app.get("/api/auth/me", async (req, res) => {
     try {
-      const sessionData = (req as any).sessionData;
-      if (!sessionData?.user) {
+      if (!req.session.user) {
         return res.status(401).json({
           success: false,
           error: "Not authenticated"
@@ -182,7 +174,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       res.json({
         success: true,
-        user: sessionData.user
+        user: req.session.user
       });
     } catch (error) {
       console.error("Auth check error:", error);

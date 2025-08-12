@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, User, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
+import AvatarGravatar from "@/components/ui/avatar-gravatar";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -108,6 +109,12 @@ export default function Navbar() {
               {/* Authentication Button */}
               {user ? (
                 <div className="flex items-center space-x-4">
+                  <AvatarGravatar 
+                    email={user.email}
+                    firstName={user.firstName}
+                    lastName={user.lastName}
+                    size="md"
+                  />
                   <span className="text-white text-sm">
                     Welcome, {user.firstName}
                   </span>
@@ -178,7 +185,15 @@ export default function Navbar() {
               <div className="border-t border-white/20 mt-6 pt-6">
                 {user ? (
                   <div>
-                    <p className="text-white text-sm mb-4">Welcome, {user.firstName}</p>
+                    <div className="flex items-center space-x-3 mb-4">
+                      <AvatarGravatar 
+                        email={user.email}
+                        firstName={user.firstName}
+                        lastName={user.lastName}
+                        size="sm"
+                      />
+                      <p className="text-white text-sm">Welcome, {user.firstName}</p>
+                    </div>
                     <button
                       onClick={() => {
                         handleLogout();
