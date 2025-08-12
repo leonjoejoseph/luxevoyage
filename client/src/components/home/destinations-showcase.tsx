@@ -25,7 +25,7 @@ const destinations = [
     subtitle: "Adventure Capital",
     price: "$4,199",
     duration: "8 Days",
-    image: "https://images.unsplash.com/photo-1507097634215-e82e6b518529?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1530656131887-4765f003e900?q=80&w=1058&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     description: "Combine luxury accommodations with thrilling adventures in New Zealand's stunning landscape.",
   },
 ];
