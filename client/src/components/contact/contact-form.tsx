@@ -50,39 +50,47 @@ export default function ContactForm() {
     try {
       // Prepare email data with proper destination handling
       const destination = data.destination === "other" ? data.customDestination : data.destination;
+      
       const emailData = {
-        ...data,
-        finalDestination: destination,
-        to: "luxevoyage@deepyinc.com",
-        subject: `New Travel Inquiry from ${data.firstName} ${data.lastName}`,
+        firstName: data.firstName,
+        lastName: data.lastName,
+        email: data.email,
+        phone: data.phone,
+        destination: destination,
+        travelDate: data.travelDate,
+        budget: data.budget,
+        message: data.message,
       };
       
-      // Send email via mailto (opens user's email client)
-      const mailtoLink = `mailto:luxevoyage@deepyinc.com?subject=Travel Inquiry from ${encodeURIComponent(data.firstName + ' ' + data.lastName)}&body=${encodeURIComponent(
-        `Name: ${data.firstName} ${data.lastName}\n` +
-        `Email: ${data.email}\n` +
-        `Phone: ${data.phone || 'Not provided'}\n` +
-        `Destination: ${destination || 'Not specified'}\n` +
-        `Travel Date: ${data.travelDate || 'Not specified'}\n` +
-        `Budget: ${data.budget || 'Not specified'}\n\n` +
-        `Message:\n${data.message || 'No additional message'}`
-      )}`;
-      
-      // Open the user's email client
-      window.location.href = mailtoLink;
-      
-      console.log("Contact form submitted:", emailData);
-      
-      toast({
-        title: "Email Client Opened!",
-        description: "Your email client has been opened with the inquiry details. Please send the email to complete your request.",
+      // Send email via API
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(emailData),
       });
       
-      form.reset();
+      const result = await response.json();
+      
+      if (result.success) {
+        toast({
+          title: "Message Sent!",
+          description: result.message || "Your travel inquiry has been sent successfully! We'll get back to you soon.",
+        });
+        form.reset();
+      } else {
+        toast({
+          title: "Error",
+          description: result.error || "Failed to send your inquiry. Please try again.",
+          variant: "destructive",
+        });
+      }
     } catch (error) {
+      console.error("Contact form error:", error);
       toast({
         title: "Error",
-        description: "There was an error processing your request. Please try again.",
+        description: "There was an error sending your inquiry. Please check your connection and try again.",
         variant: "destructive",
       });
     } finally {
