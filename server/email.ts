@@ -103,21 +103,56 @@ ${params.message ? `Message:\n${params.message}` : ''}
 Please respond to the customer at: ${params.email}
     `;
 
-    await mailService.send({
-      to: 'luxevoyage@deepyinc.com',
-      from: 'noreply@luxevoyage.com', // This should be a verified sender in SendGrid
-      replyTo: params.email,
-      subject: `New Travel Inquiry from ${params.firstName} ${params.lastName}`,
-      text: emailText,
-      html: emailHtml,
-    });
+    // Try different sender configurations based on SendGrid setup
+    const possibleSenders = [
+      'noreply@replit.app', // Replit domain should work
+      'contact@luxevoyage.com',
+      'luxevoyage@deepyinc.com'
+    ];
 
-    return { success: true };
-  } catch (error) {
+    let lastError;
+    for (const sender of possibleSenders) {
+      try {
+        await mailService.send({
+          to: 'luxevoyage@deepyinc.com',
+          from: sender,
+          replyTo: params.email,
+          subject: `New Travel Inquiry from ${params.firstName} ${params.lastName}`,
+          text: emailText,
+          html: emailHtml,
+        });
+        
+        console.log(`Email sent successfully from: ${sender}`);
+        return { success: true };
+      } catch (err: any) {
+        console.log(`Failed to send from ${sender}:`, err.code);
+        lastError = err;
+        continue;
+      }
+    }
+    
+    throw lastError;
+  } catch (error: any) {
     console.error('SendGrid email error:', error);
+    
+    // Provide specific error messages based on SendGrid response
+    let errorMessage = 'Unknown email error';
+    
+    if (error.code === 403) {
+      errorMessage = 'SendGrid API key is invalid or lacks permissions. Please verify your API key and sender email address.';
+    } else if (error.code === 401) {
+      errorMessage = 'SendGrid API key is unauthorized. Please check your API key.';
+    } else if (error.code === 400) {
+      errorMessage = 'Invalid email data. Please check sender and recipient email addresses.';
+    } else if (error.response?.body?.errors) {
+      errorMessage = `SendGrid error: ${error.response.body.errors.map((e: any) => e.message).join(', ')}`;
+    } else if (error.message) {
+      errorMessage = error.message;
+    }
+    
     return { 
       success: false, 
-      error: error instanceof Error ? error.message : 'Unknown email error'
+      error: errorMessage
     };
   }
 }
