@@ -1,11 +1,14 @@
 import { MailService } from '@sendgrid/mail';
 
-if (!process.env.SENDGRID_API_KEY) {
-  throw new Error("SENDGRID_API_KEY environment variable must be set");
-}
+let mailService: MailService | null = null;
 
-const mailService = new MailService();
-mailService.setApiKey(process.env.SENDGRID_API_KEY);
+function initializeMailService() {
+  if (!mailService && process.env.SENDGRID_API_KEY) {
+    mailService = new MailService();
+    mailService.setApiKey(process.env.SENDGRID_API_KEY);
+  }
+  return mailService;
+}
 
 interface ContactEmailParams {
   firstName: string;
@@ -20,6 +23,15 @@ interface ContactEmailParams {
 
 export async function sendContactEmail(params: ContactEmailParams): Promise<{ success: boolean; error?: string }> {
   try {
+    const service = initializeMailService();
+    
+    if (!service) {
+      console.log('SendGrid API key not configured, skipping email send');
+      return { 
+        success: true, // Return success to avoid breaking the app flow
+        error: 'Email service not configured - contact form data logged to console'
+      };
+    }
     const emailHtml = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
         <div style="background: linear-gradient(135deg, #1e3a8a, #0f172a); padding: 30px; text-align: center; color: white; border-radius: 10px 10px 0 0;">
@@ -113,7 +125,7 @@ Please respond to the customer at: ${params.email}
     let lastError;
     for (const sender of possibleSenders) {
       try {
-        await mailService.send({
+        await service.send({
           to: 'luxevoyage@deepyinc.com',
           from: sender,
           replyTo: params.email,

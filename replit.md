@@ -2,6 +2,14 @@
 
 LuxeVoyage is a premium luxury travel agency website built as a modern, interactive multi-page application. The project showcases high-end travel packages and destinations with sophisticated animations, glassmorphism design effects, and responsive layouts. It features a React-based frontend with TypeScript, premium UI components from shadcn/ui, and a full-stack architecture using Express.js with PostgreSQL database integration via Drizzle ORM.
 
+# Recent Changes
+
+## 2025-08-12: Application Startup Fix
+- Fixed SendGrid email service initialization error that was preventing app startup
+- Made email service optional - app now starts successfully even without SENDGRID_API_KEY
+- Fixed TypeScript errors in authentication routes related to boolean type coercion
+- Application now runs successfully on port 5000
+
 # User Preferences
 
 Preferred communication style: Simple, everyday language.
