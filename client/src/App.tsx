@@ -10,7 +10,7 @@ import Home from "@/pages/home";
 import Packages from "@/pages/packages";
 import Contact from "@/pages/contact";
 import Login from "@/pages/login";
-import Bookings from "@/pages/bookings";
+
 import NotFound from "@/pages/not-found";
 
 // Layout components
@@ -28,7 +28,7 @@ function Router() {
       <Route path="/packages" component={Packages} />
       <Route path="/contact" component={Contact} />
       <Route path="/login" component={Login} />
-      <Route path="/bookings" component={Bookings} />
+
       <Route component={NotFound} />
     </Switch>
   );

@@ -78,7 +78,6 @@ export default function Navbar() {
     { href: "/", label: "Home" },
     { href: "/packages", label: "Packages" },
     { href: "/contact", label: "Contact" },
-    ...(user ? [{ href: "/bookings", label: "Booking History" }] : []),
   ];
 
   return (

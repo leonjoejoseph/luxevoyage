@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -27,6 +27,7 @@ type ContactFormData = z.infer<typeof contactFormSchema>;
 
 export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [user, setUser] = useState(null);
   const { toast } = useToast();
   
   const form = useForm<ContactFormData>({
@@ -43,6 +44,32 @@ export default function ContactForm() {
       message: "",
     },
   });
+
+  // Check if user is authenticated and pre-fill form
+  useEffect(() => {
+    const checkAuthAndPrefill = async () => {
+      try {
+        const response = await fetch('/api/auth/me', {
+          credentials: 'include'
+        });
+        
+        if (response.ok) {
+          const result = await response.json();
+          if (result.success && result.user) {
+            setUser(result.user);
+            // Pre-fill form with user data
+            form.setValue('firstName', result.user.firstName || '');
+            form.setValue('lastName', result.user.lastName || '');
+            form.setValue('email', result.user.email || '');
+          }
+        }
+      } catch (error) {
+        console.log('User not authenticated');
+      }
+    };
+
+    checkAuthAndPrefill();
+  }, [form]);
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);

@@ -198,20 +198,7 @@ ${messages?.map((msg: any, i: number) => `${i + 1}. ${msg.sender}: ${msg.text}`)
     }
   });
 
-  // Bookings endpoint
-  app.get("/api/bookings", async (req, res) => {
-    try {
-      if (!req.session?.user?.id) {
-        return res.status(401).json({ success: false, error: "Not authenticated" });
-      }
 
-      // For now, return mock data as no bookings have been made yet
-      res.json([]);
-    } catch (error) {
-      console.error("Bookings error:", error);
-      res.status(500).json({ success: false, error: "Failed to fetch bookings" });
-    }
-  });
 
   // Authentication routes
   
