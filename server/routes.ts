@@ -29,49 +29,84 @@ function getLocalTravelResponse(message: string): string {
     }
   }
   
-  // Travel-related responses
-  if (lowerMessage.includes('package') || lowerMessage.includes('price') || lowerMessage.includes('cost')) {
-    return "LuxeVoyage offers premium travel packages starting from $1,899 for our Angkor Wonder experience up to $28,999 for our Antarctica Luxury Expedition. Our most popular packages include the Maldives Ocean Villa ($4,299), Swiss Alpine Luxury ($3,899), and Japan Private Ryokan ($11,299). Would you like details about any specific destination?";
-  }
-  
+  // Travel-related responses - check specific destinations first
   if (lowerMessage.includes('maldives')) {
     return "Our Maldives Ocean Villa Experience ($4,299) includes 5 days in an overwater villa with private butler service, snorkeling with manta rays, sunset dolphin cruise, spa treatments, and fine dining. It's perfect for romantic getaways and luxury relaxation.";
   }
   
-  if (lowerMessage.includes('switzerland') || lowerMessage.includes('alpine')) {
+  if (lowerMessage.includes('switzerland') || lowerMessage.includes('alpine') || lowerMessage.includes('swiss')) {
     return "The Swiss Alpine Luxury Experience ($3,899) offers 6 days of mountain luxury with helicopter skiing, Michelin-starred dining, luxury spa treatments, private alpine tours, and accommodations in premium chalets. Best visited December-March for winter sports or June-September for hiking.";
   }
   
-  if (lowerMessage.includes('japan')) {
+  if (lowerMessage.includes('japan') || lowerMessage.includes('japanese') || lowerMessage.includes('ryokan')) {
     return "Our Japan Private Ryokan Experience ($11,299) includes 8 days of cultural immersion with private ryokan stays, hot springs, daily kaiseki meals, tea ceremony with a master, private temple meditation, and a helicopter tour of Mount Fuji.";
   }
   
-  if (lowerMessage.includes('antarctica')) {
+  if (lowerMessage.includes('antarctica') || lowerMessage.includes('antarctic')) {
     return "The Antarctica Luxury Expedition ($28,999) is our most exclusive 12-day adventure aboard a luxury icebreaker. Includes expert naturalist guides, zodiac wildlife tours, photography workshops, and champagne ice tasting. Limited to 12 guests per departure.";
   }
   
-  if (lowerMessage.includes('iceland')) {
+  if (lowerMessage.includes('iceland') || lowerMessage.includes('northern lights') || lowerMessage.includes('aurora')) {
     return "Our Iceland Northern Lights package ($6,299) features 5 days in glass igloo accommodations, aurora hunting tours, Blue Lagoon spa access, glacier hiking, and Reykjavik city tours. Best visited September-March for northern lights viewing.";
   }
   
-  if (lowerMessage.includes('bali')) {
+  if (lowerMessage.includes('bali') || lowerMessage.includes('indonesia')) {
     return "The Bali Private Villa Retreat ($8,599) offers 7 days in an exclusive cliff-side villa with personal chef and butler, helicopter temple tours, traditional spa treatments, and sunset yacht charters. Perfect for ultimate privacy and luxury.";
   }
   
-  if (lowerMessage.includes('norway') || lowerMessage.includes('fjord')) {
+  if (lowerMessage.includes('norway') || lowerMessage.includes('fjord') || lowerMessage.includes('norwegian')) {
     return "Our Norway Fjords Explorer ($9,299) combines 9 days of scenic railway journeys and premium fjord cruises, with northern lights hunting, gourmet Nordic cuisine, and cultural performances. Includes the famous Flam Railway and Geiranger Fjord.";
   }
   
-  if (lowerMessage.includes('booking') || lowerMessage.includes('reserve') || lowerMessage.includes('availability')) {
+  if (lowerMessage.includes('dubai') || lowerMessage.includes('penthouse')) {
+    return "Our Dubai Penthouse Suite experience ($22,999) includes 5 nights in the Burj Al Arab Royal Suite with helicopter transfers, private desert safari, yacht charter, and shopping with a personal stylist. The ultimate in Middle Eastern luxury.";
+  }
+  
+  if (lowerMessage.includes('patagonia') || lowerMessage.includes('chile') || lowerMessage.includes('argentina')) {
+    return "The Patagonia Private Expedition ($7,899) offers 9 days of exclusive wilderness exploration with private charter flights, expert guides, luxury eco-lodges, and glacier trekking. Perfect for adventure seekers who demand comfort.";
+  }
+  
+  if (lowerMessage.includes('kenya') || lowerMessage.includes('safari') || lowerMessage.includes('africa') || lowerMessage.includes('wildlife')) {
+    return "Our Kenya Safari ($3,499) includes 6 days of Big Five wildlife viewing with professional guides, game drives in Masai Mara, cultural village visits, hot air balloon safari, and bush breakfast experiences in luxury tented camps.";
+  }
+  
+  // Booking and service queries - must come before other more general checks
+  if (lowerMessage.includes('book') || lowerMessage.includes('reserve') || lowerMessage.includes('availability') || lowerMessage.includes('how to book') || lowerMessage.includes('i want to book')) {
     return "To book any of our luxury packages, please contact our travel experts at luxevoyage25@gmail.com or use our contact form. We'll arrange a personalized consultation to customize your perfect getaway. All packages include 24/7 concierge support.";
   }
   
-  if (lowerMessage.includes('consultation') || lowerMessage.includes('custom') || lowerMessage.includes('personalized')) {
+  if (lowerMessage.includes('consultation') || lowerMessage.includes('custom') || lowerMessage.includes('personalized') || lowerMessage.includes('tailor')) {
     return "We offer complimentary luxury travel consultations to create personalized itineraries. Our experts will work with you to design the perfect experience based on your preferences, budget, and travel dates. Contact us at luxevoyage25@gmail.com to schedule your consultation.";
   }
   
-  if (lowerMessage.includes('hello') || lowerMessage.includes('hi') || lowerMessage.includes('help')) {
+  // Price and package queries
+  if (lowerMessage.includes('package') || lowerMessage.includes('price') || lowerMessage.includes('cost') || lowerMessage.includes('how much')) {
+    return "LuxeVoyage offers premium travel packages starting from $1,899 for our Angkor Wonder experience up to $28,999 for our Antarctica Luxury Expedition. Our most popular packages include the Maldives Ocean Villa ($4,299), Swiss Alpine Luxury ($3,899), and Japan Private Ryokan ($11,299). Would you like details about any specific destination?";
+  }
+  
+  // Greetings and general help
+  if (lowerMessage.includes('hello') || lowerMessage.includes('hi') || lowerMessage.includes('help') || lowerMessage === 'hey') {
     return "Welcome to LuxeVoyage! I'm here to help you plan the perfect luxury getaway. We specialize in exclusive travel experiences to destinations like the Maldives, Switzerland, Japan, Antarctica, Iceland, Bali, and Norway. What type of luxury adventure interests you?";
+  }
+  
+  // Travel planning queries
+  if (lowerMessage.includes('plan') || lowerMessage.includes('itinerary') || lowerMessage.includes('trip planning')) {
+    return "Our travel experts create fully customized luxury itineraries based on your preferences. We handle everything from accommodation and dining to exclusive experiences and transportation. Each package includes 24/7 concierge support. What destination interests you most?";
+  }
+  
+  // Accommodation queries
+  if (lowerMessage.includes('hotel') || lowerMessage.includes('accommodation') || lowerMessage.includes('stay') || lowerMessage.includes('villa') || lowerMessage.includes('where') || lowerMessage.includes('lodge')) {
+    return "All LuxeVoyage packages include premium accommodations: overwater villas in the Maldives, luxury chalets in Switzerland, traditional ryokans in Japan, expedition suites in Antarctica, glass igloos in Iceland, cliff-side villas in Bali, and boutique hotels in Norway. Each offers exceptional service and unique experiences.";
+  }
+  
+  // Contact and support queries
+  if (lowerMessage.includes('contact') || lowerMessage.includes('email') || lowerMessage.includes('phone') || lowerMessage.includes('support')) {
+    return "You can reach our luxury travel experts at luxevoyage25@gmail.com or use our contact form on the website. We provide 24/7 concierge support for all our guests and offer complimentary consultations for custom itinerary planning.";
+  }
+  
+  // General destination queries
+  if (lowerMessage.includes('destination') || lowerMessage.includes('where can') || lowerMessage.includes('places') || lowerMessage.includes('travel to')) {
+    return "LuxeVoyage specializes in exclusive destinations worldwide: Maldives overwater villas, Swiss alpine retreats, Japan cultural immersion, Antarctica expeditions, Iceland northern lights, Bali private villas, Norway fjords, Dubai luxury, Patagonia adventures, and Kenya safaris. Which destination interests you most?";
   }
   
   // Default travel response
