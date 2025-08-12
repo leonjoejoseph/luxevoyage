@@ -4,8 +4,106 @@ import { storage } from "./storage";
 import { sendContactEmail } from "./email";
 import { AuthService } from "./auth";
 import { loginSchema, registerSchema } from "../shared/schema";
+import OpenAI from "openai";
+
+// Initialize OpenAI client
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+});
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Chat API endpoint
+  app.post("/api/chat", async (req, res) => {
+    try {
+      const { message, context } = req.body;
+
+      if (!message) {
+        return res.status(400).json({
+          success: false,
+          error: "Message is required"
+        });
+      }
+
+      if (!process.env.OPENAI_API_KEY) {
+        return res.json({
+          success: true,
+          response: "I apologize, but I'm experiencing technical difficulties. Please contact our travel experts directly at luxevoyage25@gmail.com for immediate assistance."
+        });
+      }
+
+      const completion = await openai.chat.completions.create({
+        model: "gpt-4o", // the newest OpenAI model is "gpt-4o" which was released May 13, 2024. do not change this unless explicitly requested by the user
+        messages: [
+          {
+            role: "system",
+            content: context || "You are a helpful luxury travel assistant for LuxeVoyage."
+          },
+          {
+            role: "user",
+            content: message
+          }
+        ],
+        max_tokens: 500,
+        temperature: 0.7,
+      });
+
+      const response = completion.choices[0]?.message?.content || "I apologize, but I couldn't process your request. Please try again.";
+
+      res.json({
+        success: true,
+        response: response
+      });
+    } catch (error) {
+      console.error("Chat API error:", error);
+      res.json({
+        success: true,
+        response: "I apologize, but I'm experiencing technical difficulties. Please contact our travel experts directly at luxevoyage25@gmail.com for immediate assistance."
+      });
+    }
+  });
+
+  // Chat feedback endpoint
+  app.post("/api/chat/feedback", async (req, res) => {
+    try {
+      const { rating, feedback, messages } = req.body;
+
+      // Send feedback email
+      const result = await sendContactEmail({
+        firstName: "Chat",
+        lastName: "Feedback",
+        email: "system@luxevoyage.com",
+        message: `
+Chat Session Rating: ${rating}/5 stars
+
+Feedback: ${feedback || 'No additional feedback provided'}
+
+Chat Messages:
+${messages?.map((msg: any, i: number) => `${i + 1}. ${msg.sender}: ${msg.text}`).join('\n') || 'No messages recorded'}
+        `
+      });
+
+      res.json({ success: true });
+    } catch (error) {
+      console.error("Chat feedback error:", error);
+      res.status(500).json({ success: false, error: "Failed to submit feedback" });
+    }
+  });
+
+  // Bookings endpoint
+  app.get("/api/bookings", async (req, res) => {
+    try {
+      if (!req.session.userId) {
+        return res.status(401).json({ success: false, error: "Not authenticated" });
+      }
+
+      // For now, return mock data as no bookings have been made yet
+      res.json([]);
+    } catch (error) {
+      console.error("Bookings error:", error);
+      res.status(500).json({ success: false, error: "Failed to fetch bookings" });
+    }
+  });
+
   // Authentication routes
   
   // Register endpoint

@@ -78,6 +78,7 @@ export default function Navbar() {
     { href: "/", label: "Home" },
     { href: "/packages", label: "Packages" },
     { href: "/contact", label: "Contact" },
+    ...(user ? [{ href: "/bookings", label: "Booking History" }] : []),
   ];
 
   return (
@@ -110,13 +111,13 @@ export default function Navbar() {
               {user ? (
                 <div className="flex items-center space-x-4">
                   <AvatarGravatar 
-                    email={user.email}
-                    firstName={user.firstName}
-                    lastName={user.lastName}
+                    email={user?.email || ''}
+                    firstName={user?.firstName || ''}
+                    lastName={user?.lastName || ''}
                     size="md"
                   />
                   <span className="text-white text-sm">
-                    Welcome, {user.firstName}
+                    Welcome, {user?.firstName}
                   </span>
                   <Button
                     onClick={handleLogout}
@@ -187,12 +188,12 @@ export default function Navbar() {
                   <div>
                     <div className="flex items-center space-x-3 mb-4">
                       <AvatarGravatar 
-                        email={user.email}
-                        firstName={user.firstName}
-                        lastName={user.lastName}
+                        email={user?.email || ''}
+                        firstName={user?.firstName || ''}
+                        lastName={user?.lastName || ''}
                         size="sm"
                       />
-                      <p className="text-white text-sm">Welcome, {user.firstName}</p>
+                      <p className="text-white text-sm">Welcome, {user?.firstName}</p>
                     </div>
                     <button
                       onClick={() => {

@@ -119,14 +119,14 @@ Please respond to the customer at: ${params.email}
     const possibleSenders = [
       'noreply@replit.app', // Replit domain should work
       'contact@luxevoyage.com',
-      'luxevoyage@deepyinc.com'
+      'luxevoyage25@gmail.com'
     ];
 
     let lastError;
     for (const sender of possibleSenders) {
       try {
         await service.send({
-          to: 'luxevoyage@deepyinc.com',
+          to: 'luxevoyage25@gmail.com',
           from: sender,
           replyTo: params.email,
           subject: `New Travel Inquiry from ${params.firstName} ${params.lastName}`,

@@ -185,10 +185,19 @@ export default function ContactForm() {
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      <SelectItem value="santorini">Santorini, Greece</SelectItem>
-                      <SelectItem value="kyoto">Kyoto, Japan</SelectItem>
-                      <SelectItem value="queenstown">Queenstown, New Zealand</SelectItem>
                       <SelectItem value="maldives">Maldives</SelectItem>
+                      <SelectItem value="switzerland">Switzerland</SelectItem>
+                      <SelectItem value="japan">Japan</SelectItem>
+                      <SelectItem value="antarctica">Antarctica</SelectItem>
+                      <SelectItem value="dubai">Dubai</SelectItem>
+                      <SelectItem value="patagonia">Patagonia</SelectItem>
+                      <SelectItem value="kenya">Kenya</SelectItem>
+                      <SelectItem value="iceland">Iceland</SelectItem>
+                      <SelectItem value="bali">Bali</SelectItem>
+                      <SelectItem value="norway">Norway</SelectItem>
+                      <SelectItem value="morocco">Morocco</SelectItem>
+                      <SelectItem value="santorini">Santorini, Greece</SelectItem>
+                      <SelectItem value="queenstown">Queenstown, New Zealand</SelectItem>
                       <SelectItem value="other">Other</SelectItem>
                     </SelectContent>
                   </Select>
@@ -250,7 +259,10 @@ export default function ContactForm() {
                       <SelectItem value="2000-5000">$2,000 - $5,000</SelectItem>
                       <SelectItem value="5000-10000">$5,000 - $10,000</SelectItem>
                       <SelectItem value="10000-20000">$10,000 - $20,000</SelectItem>
-                      <SelectItem value="20000+">$20,000+</SelectItem>
+                      <SelectItem value="20000-30000">$20,000 - $30,000</SelectItem>
+                      <SelectItem value="30000-50000">$30,000 - $50,000</SelectItem>
+                      <SelectItem value="50000-100000">$50,000 - $100,000</SelectItem>
+                      <SelectItem value="100000+">$100,000+</SelectItem>
                     </SelectContent>
                   </Select>
                   <FormMessage />

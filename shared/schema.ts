@@ -22,6 +22,20 @@ export const sessions = pgTable("sessions", {
   createdAt: timestamp("created_at").defaultNow(),
 });
 
+// Booking history table
+export const bookings = pgTable("bookings", {
+  id: text("id").primaryKey(),
+  userId: text("user_id").notNull().references(() => users.id),
+  packageId: text("package_id").notNull(),
+  packageTitle: text("package_title").notNull(),
+  packagePrice: text("package_price").notNull(),
+  status: text("status").notNull().default("pending"), // pending, confirmed, cancelled
+  bookingDate: timestamp("booking_date").defaultNow(),
+  travelDate: text("travel_date"),
+  notes: text("notes"),
+  createdAt: timestamp("created_at").defaultNow(),
+});
+
 // Schema types
 export const insertUserSchema = createInsertSchema(users).omit({
   id: true,
@@ -46,3 +60,4 @@ export type InsertUser = z.infer<typeof insertUserSchema>;
 export type LoginData = z.infer<typeof loginSchema>;
 export type RegisterData = z.infer<typeof registerSchema>;
 export type Session = typeof sessions.$inferSelect;
+export type Booking = typeof bookings.$inferSelect;

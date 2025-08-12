@@ -15,7 +15,7 @@ const quickLinks = [
 
 const contactInfo = [
   { icon: Phone, text: "+965 2222 9999" },
-  { icon: Mail, text: "luxevoyage@deepyinc.com" },
+  { icon: Mail, text: "luxevoyage25@gmail.com" },
   { icon: MapPin, text: "Carmel School Kuwait" },
 ];
 
