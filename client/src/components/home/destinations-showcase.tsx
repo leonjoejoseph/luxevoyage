@@ -114,7 +114,7 @@ export default function DestinationsShowcase() {
                       e.currentTarget.innerHTML = `<span style="color: #6b7280; font-size: 14px;">Image not available</span>`;
                     }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/80 to-transparent" />
+                  
                   <div className="absolute bottom-6 left-6 text-white">
                     <h3 className="text-2xl font-serif font-bold mb-2">{destination.name}</h3>
                     <p className="text-sm opacity-90">{destination.subtitle}</p>
