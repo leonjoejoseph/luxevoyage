@@ -132,7 +132,7 @@ const packages: PackageType[] = [
     rating: 4.8,
     reviews: 45,
     category: ["luxury", "adventure"],
-    image: "https://images.unsplash.com/photo-1478828217402-1281d024ba97?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1674784764904-2200fd51e1c9?q=80&w=1033&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     badge: "Ultimate Adventure",
     badgeColor: "blue",
     includes: [
