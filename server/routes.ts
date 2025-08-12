@@ -11,6 +11,73 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
+// Local travel response system for when OpenAI is unavailable
+function getLocalTravelResponse(message: string): string {
+  const lowerMessage = message.toLowerCase();
+  
+  // Check for non-travel questions first
+  const nonTravelKeywords = [
+    'weather today', 'current weather', 'what time is it', 'politics', 'sports score', 
+    'news', 'stock market', 'cryptocurrency', 'programming', 'coding', 'technology',
+    'science', 'math', 'history', 'music', 'movies', 'books', 'recipes', 'cooking',
+    'health advice', 'medical', 'finance', 'investment', 'personal', 'relationship'
+  ];
+  
+  for (const keyword of nonTravelKeywords) {
+    if (lowerMessage.includes(keyword) && !lowerMessage.includes('travel') && !lowerMessage.includes('vacation') && !lowerMessage.includes('destination')) {
+      return "Out of topic Question";
+    }
+  }
+  
+  // Travel-related responses
+  if (lowerMessage.includes('package') || lowerMessage.includes('price') || lowerMessage.includes('cost')) {
+    return "LuxeVoyage offers premium travel packages starting from $1,899 for our Angkor Wonder experience up to $28,999 for our Antarctica Luxury Expedition. Our most popular packages include the Maldives Ocean Villa ($4,299), Swiss Alpine Luxury ($3,899), and Japan Private Ryokan ($11,299). Would you like details about any specific destination?";
+  }
+  
+  if (lowerMessage.includes('maldives')) {
+    return "Our Maldives Ocean Villa Experience ($4,299) includes 5 days in an overwater villa with private butler service, snorkeling with manta rays, sunset dolphin cruise, spa treatments, and fine dining. It's perfect for romantic getaways and luxury relaxation.";
+  }
+  
+  if (lowerMessage.includes('switzerland') || lowerMessage.includes('alpine')) {
+    return "The Swiss Alpine Luxury Experience ($3,899) offers 6 days of mountain luxury with helicopter skiing, Michelin-starred dining, luxury spa treatments, private alpine tours, and accommodations in premium chalets. Best visited December-March for winter sports or June-September for hiking.";
+  }
+  
+  if (lowerMessage.includes('japan')) {
+    return "Our Japan Private Ryokan Experience ($11,299) includes 8 days of cultural immersion with private ryokan stays, hot springs, daily kaiseki meals, tea ceremony with a master, private temple meditation, and a helicopter tour of Mount Fuji.";
+  }
+  
+  if (lowerMessage.includes('antarctica')) {
+    return "The Antarctica Luxury Expedition ($28,999) is our most exclusive 12-day adventure aboard a luxury icebreaker. Includes expert naturalist guides, zodiac wildlife tours, photography workshops, and champagne ice tasting. Limited to 12 guests per departure.";
+  }
+  
+  if (lowerMessage.includes('iceland')) {
+    return "Our Iceland Northern Lights package ($6,299) features 5 days in glass igloo accommodations, aurora hunting tours, Blue Lagoon spa access, glacier hiking, and Reykjavik city tours. Best visited September-March for northern lights viewing.";
+  }
+  
+  if (lowerMessage.includes('bali')) {
+    return "The Bali Private Villa Retreat ($8,599) offers 7 days in an exclusive cliff-side villa with personal chef and butler, helicopter temple tours, traditional spa treatments, and sunset yacht charters. Perfect for ultimate privacy and luxury.";
+  }
+  
+  if (lowerMessage.includes('norway') || lowerMessage.includes('fjord')) {
+    return "Our Norway Fjords Explorer ($9,299) combines 9 days of scenic railway journeys and premium fjord cruises, with northern lights hunting, gourmet Nordic cuisine, and cultural performances. Includes the famous Flam Railway and Geiranger Fjord.";
+  }
+  
+  if (lowerMessage.includes('booking') || lowerMessage.includes('reserve') || lowerMessage.includes('availability')) {
+    return "To book any of our luxury packages, please contact our travel experts at luxevoyage25@gmail.com or use our contact form. We'll arrange a personalized consultation to customize your perfect getaway. All packages include 24/7 concierge support.";
+  }
+  
+  if (lowerMessage.includes('consultation') || lowerMessage.includes('custom') || lowerMessage.includes('personalized')) {
+    return "We offer complimentary luxury travel consultations to create personalized itineraries. Our experts will work with you to design the perfect experience based on your preferences, budget, and travel dates. Contact us at luxevoyage25@gmail.com to schedule your consultation.";
+  }
+  
+  if (lowerMessage.includes('hello') || lowerMessage.includes('hi') || lowerMessage.includes('help')) {
+    return "Welcome to LuxeVoyage! I'm here to help you plan the perfect luxury getaway. We specialize in exclusive travel experiences to destinations like the Maldives, Switzerland, Japan, Antarctica, Iceland, Bali, and Norway. What type of luxury adventure interests you?";
+  }
+  
+  // Default travel response
+  return "I'm your luxury travel assistant for LuxeVoyage. I can help you with information about our exclusive packages, destinations, pricing, and booking. We offer premium experiences to the Maldives, Switzerland, Japan, Antarctica, Iceland, Bali, Norway, and more. What would you like to know about luxury travel?";
+}
+
 export async function registerRoutes(app: Express): Promise<Server> {
   // Chat API endpoint
   app.post("/api/chat", async (req, res) => {
@@ -24,40 +91,47 @@ export async function registerRoutes(app: Express): Promise<Server> {
         });
       }
 
-      if (!process.env.OPENAI_API_KEY) {
+      // Always use local fallback due to API quota limits
+      return res.json({
+        success: true,
+        response: getLocalTravelResponse(message)
+      });
+
+      try {
+        const completion = await openai.chat.completions.create({
+          model: "gpt-4o", // the newest OpenAI model is "gpt-4o" which was released May 13, 2024. do not change this unless explicitly requested by the user
+          messages: [
+            {
+              role: "system",
+              content: context || "You are a helpful luxury travel assistant for LuxeVoyage."
+            },
+            {
+              role: "user",
+              content: message
+            }
+          ],
+          max_tokens: 500,
+          temperature: 0.7,
+        });
+
+        const response = completion.choices[0]?.message?.content || "I apologize, but I couldn't process your request. Please try again.";
+        
+        res.json({
+          success: true,
+          response: response
+        });
+      } catch (apiError: any) {
+        console.warn("OpenAI API error, falling back to local responses:", apiError.message);
         return res.json({
           success: true,
-          response: "I apologize, but I'm experiencing technical difficulties. Please contact our travel experts directly at luxevoyage25@gmail.com for immediate assistance."
+          response: getLocalTravelResponse(message)
         });
       }
-
-      const completion = await openai.chat.completions.create({
-        model: "gpt-4o", // the newest OpenAI model is "gpt-4o" which was released May 13, 2024. do not change this unless explicitly requested by the user
-        messages: [
-          {
-            role: "system",
-            content: context || "You are a helpful luxury travel assistant for LuxeVoyage."
-          },
-          {
-            role: "user",
-            content: message
-          }
-        ],
-        max_tokens: 500,
-        temperature: 0.7,
-      });
-
-      const response = completion.choices[0]?.message?.content || "I apologize, but I couldn't process your request. Please try again.";
-
-      res.json({
-        success: true,
-        response: response
-      });
     } catch (error) {
       console.error("Chat API error:", error);
       res.json({
         success: true,
-        response: "I apologize, but I'm experiencing technical difficulties. Please contact our travel experts directly at luxevoyage25@gmail.com for immediate assistance."
+        response: getLocalTravelResponse(req.body.message)
       });
     }
   });
@@ -92,7 +166,7 @@ ${messages?.map((msg: any, i: number) => `${i + 1}. ${msg.sender}: ${msg.text}`)
   // Bookings endpoint
   app.get("/api/bookings", async (req, res) => {
     try {
-      if (!req.session.userId) {
+      if (!req.session?.user?.id) {
         return res.status(401).json({ success: false, error: "Not authenticated" });
       }
 
