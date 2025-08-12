@@ -118,6 +118,15 @@
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
   }
 
+  /* Luxury gradient for buttons */
+  .bg-gradient-luxury {
+    background: linear-gradient(135deg, #D4AF37 0%, #F4D03F 50%, #D4AF37 100%);
+  }
+
+  .bg-gradient-luxury:hover {
+    background: linear-gradient(135deg, #B8941F 0%, #D4AF37 50%, #B8941F 100%);
+  }
+
   /* Hover effects */
   .hover-zoom {
     transition: transform 0.5s ease, box-shadow 0.3s ease;

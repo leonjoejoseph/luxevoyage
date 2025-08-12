@@ -1,13 +1,16 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, User, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useToast } from "@/hooks/use-toast";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [user, setUser] = useState(null);
   const [location] = useLocation();
+  const { toast } = useToast();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,12 +21,56 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    // Check if user is authenticated on component mount
+    const checkAuth = async () => {
+      try {
+        const response = await fetch('/api/auth/me', {
+          credentials: 'include'
+        });
+        
+        if (response.ok) {
+          const result = await response.json();
+          if (result.success) {
+            setUser(result.user);
+          }
+        }
+      } catch (error) {
+        console.log('User not authenticated');
+      }
+    };
+
+    checkAuth();
+  }, [location]); // Re-check on location change
+
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
   const closeMenu = () => {
     setIsOpen(false);
+  };
+
+  const handleLogout = async () => {
+    try {
+      await fetch('/api/auth/logout', {
+        method: 'POST',
+        credentials: 'include',
+      });
+      
+      setUser(null);
+      toast({
+        title: "Logged out successfully",
+        description: "You have been signed out of your account."
+      });
+    } catch (error) {
+      console.error('Logout error:', error);
+      toast({
+        title: "Logout failed",
+        description: "There was an error signing out. Please try again.",
+        variant: "destructive"
+      });
+    }
   };
 
   const navLinks = [
@@ -45,7 +92,7 @@ export default function Navbar() {
             </Link>
             
             {/* Desktop Menu */}
-            <div className="hidden md:flex space-x-8">
+            <div className="hidden md:flex items-center space-x-8">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
@@ -57,6 +104,37 @@ export default function Navbar() {
                   {link.label}
                 </Link>
               ))}
+              
+              {/* Authentication Button */}
+              {user ? (
+                <div className="flex items-center space-x-4">
+                  <span className="text-white text-sm">
+                    Welcome, {user.firstName}
+                  </span>
+                  <Button
+                    onClick={handleLogout}
+                    variant="ghost"
+                    size="sm"
+                    className="text-white hover:text-gold-accent hover:bg-transparent"
+                    data-testid="button-logout"
+                  >
+                    <LogOut className="w-4 h-4 mr-2" />
+                    Sign Out
+                  </Button>
+                </div>
+              ) : (
+                <Link href="/login">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="text-white hover:text-gold-accent hover:bg-transparent"
+                    data-testid="button-login"
+                  >
+                    <User className="w-4 h-4 mr-2" />
+                    Sign In
+                  </Button>
+                </Link>
+              )}
             </div>
 
             {/* Mobile Menu Button */}
@@ -95,6 +173,36 @@ export default function Navbar() {
                   {link.label}
                 </Link>
               ))}
+              
+              {/* Mobile Authentication */}
+              <div className="border-t border-white/20 mt-6 pt-6">
+                {user ? (
+                  <div>
+                    <p className="text-white text-sm mb-4">Welcome, {user.firstName}</p>
+                    <button
+                      onClick={() => {
+                        handleLogout();
+                        closeMenu();
+                      }}
+                      className="flex items-center py-3 text-white hover:text-gold-accent transition-colors duration-300"
+                      data-testid="button-mobile-logout"
+                    >
+                      <LogOut className="w-4 h-4 mr-3" />
+                      Sign Out
+                    </button>
+                  </div>
+                ) : (
+                  <Link
+                    href="/login"
+                    className="flex items-center py-3 text-white hover:text-gold-accent transition-colors duration-300"
+                    onClick={closeMenu}
+                    data-testid="button-mobile-login"
+                  >
+                    <User className="w-4 h-4 mr-3" />
+                    Sign In
+                  </Link>
+                )}
+              </div>
             </div>
           </motion.div>
         )}

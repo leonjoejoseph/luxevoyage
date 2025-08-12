@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import Home from "@/pages/home";
 import Packages from "@/pages/packages";
 import Contact from "@/pages/contact";
+import Login from "@/pages/login";
 import NotFound from "@/pages/not-found";
 
 // Layout components
@@ -24,6 +25,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/packages" component={Packages} />
       <Route path="/contact" component={Contact} />
+      <Route path="/login" component={Login} />
       <Route component={NotFound} />
     </Switch>
   );
