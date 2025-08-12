@@ -6,26 +6,26 @@ import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 const destinations = [
   {
     name: "Santorini",
-    subtitle: "Greek Islands Paradise",
+    subtitle: "Greek Islands Paradise", 
     price: "$2,499",
     duration: "5 Days",
-    image: "https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e?q=80&w=435&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=800&auto=format&fit=crop&q=60",
     description: "Experience the magic of Santorini's iconic sunsets and luxury cliff-side resorts.",
   },
   {
     name: "Kyoto",
     subtitle: "Ancient Japan Elegance",
-    price: "$3,299",
+    price: "$3,299", 
     duration: "7 Days",
-    image: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=800&auto=format&fit=crop&q=60",
     description: "Immerse yourself in traditional culture with premium ryokan stays and private temple tours.",
   },
   {
     name: "Queenstown",
     subtitle: "Adventure Capital",
     price: "$4,199",
-    duration: "8 Days",
-    image: "https://images.unsplash.com/photo-1530656131887-4765f003e900?q=80&w=1058&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    duration: "8 Days", 
+    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&auto=format&fit=crop&q=60",
     description: "Combine luxury accommodations with thrilling adventures in New Zealand's stunning landscape.",
   },
 ];
@@ -97,10 +97,23 @@ export default function DestinationsShowcase() {
             >
               <GlassmorphismCard className="overflow-hidden hover-zoom group">
                 <div
-                  className="relative h-64 bg-cover bg-center rounded-2xl overflow-hidden"
-                  style={{ backgroundImage: `url(${destination.image})` }}
+                  className="relative h-64 rounded-2xl overflow-hidden cursor-pointer"
                   onClick={() => openLightbox(destination.image)}
                 >
+                  <img
+                    src={destination.image}
+                    alt={`${destination.name} - ${destination.subtitle}`}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                    onError={(e) => {
+                      console.error(`Failed to load image for ${destination.name}:`, destination.image);
+                      e.currentTarget.style.backgroundColor = '#f3f4f6';
+                      e.currentTarget.style.display = 'flex';
+                      e.currentTarget.style.alignItems = 'center';
+                      e.currentTarget.style.justifyContent = 'center';
+                      e.currentTarget.innerHTML = `<span style="color: #6b7280; font-size: 14px;">Image not available</span>`;
+                    }}
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/80 to-transparent" />
                   <div className="absolute bottom-6 left-6 text-white">
                     <h3 className="text-2xl font-serif font-bold mb-2">{destination.name}</h3>
