@@ -151,14 +151,14 @@ export default function AIChatbot() {
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         whileHover={{ scale: 1.1 }}
-        className="fixed bottom-6 right-6 z-50"
+        className="fixed bottom-6 left-6 z-50"
       >
         <Button
           onClick={() => setIsOpen(true)}
-          className="w-16 h-16 rounded-full bg-gold-accent hover:bg-gold-accent/90 text-navy-deep shadow-lg ml-[630px] mr-[630px]"
+          className="w-20 h-20 rounded-full bg-gradient-to-r from-gold-accent to-amber-400 hover:from-gold-accent/90 hover:to-amber-400/90 text-navy-deep shadow-2xl border-4 border-white/20 backdrop-blur-sm transform hover:scale-110 transition-all duration-300"
           data-testid="button-open-chat"
         >
-          <MessageSquare className="w-8 h-8" />
+          <MessageSquare className="w-10 h-10" />
         </Button>
       </motion.div>
     );
@@ -168,14 +168,19 @@ export default function AIChatbot() {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="fixed bottom-6 right-6 z-50"
+      className="fixed bottom-6 left-6 z-50"
     >
-      <GlassmorphismCard className={`${isMinimized ? 'w-80 h-16' : 'w-96 h-[600px]'} transition-all duration-300 overflow-hidden`}>
+      <GlassmorphismCard className={`${isMinimized ? 'w-80 h-16' : 'w-[420px] h-[650px]'} transition-all duration-300 overflow-hidden shadow-2xl border border-white/30`}>
         {/* Header */}
-        <div className="flex items-center justify-between p-4 border-b border-white/20">
-          <div className="flex items-center space-x-2">
-            <Bot className="w-6 h-6 text-gold-accent" />
-            <h3 className="font-semibold text-gray-800 text-lg">Luxury Chat Support</h3>
+        <div className="flex items-center justify-between p-4 border-b border-white/20 bg-gradient-to-r from-gold-accent/20 to-amber-400/20">
+          <div className="flex items-center space-x-3">
+            <div className="w-10 h-10 rounded-full bg-gradient-to-r from-gold-accent to-amber-400 flex items-center justify-center">
+              <Bot className="w-6 h-6 text-navy-deep" />
+            </div>
+            <div>
+              <h3 className="font-semibold text-navy-deep text-lg">LuxeVoyage Assistant</h3>
+              <p className="text-xs text-gray-700 font-medium">Luxury Chat Support</p>
+            </div>
           </div>
           <div className="flex space-x-2">
             <Button
@@ -209,10 +214,10 @@ export default function AIChatbot() {
                   className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
                 >
                   <div
-                    className={`max-w-xs px-4 py-2 rounded-2xl ${
+                    className={`max-w-[300px] px-4 py-3 rounded-2xl shadow-md ${
                       msg.sender === 'user'
-                        ? 'bg-gold-accent text-navy-deep'
-                        : 'bg-white text-gray-800 border border-gray-200'
+                        ? 'bg-gradient-to-r from-gold-accent to-amber-400 text-navy-deep font-medium'
+                        : 'bg-white text-black border-2 border-gray-100 shadow-lg'
                     }`}
                   >
                     <p className="text-sm">{msg.text}</p>
@@ -222,11 +227,11 @@ export default function AIChatbot() {
               
               {isTyping && (
                 <div className="flex justify-start">
-                  <div className="bg-white text-gray-800 border border-gray-200 px-4 py-2 rounded-2xl">
-                    <div className="flex space-x-1">
-                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" />
-                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce delay-100" />
-                      <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce delay-200" />
+                  <div className="bg-white text-black border-2 border-gray-100 shadow-lg px-4 py-3 rounded-2xl">
+                    <div className="flex space-x-2">
+                      <div className="w-3 h-3 bg-gold-accent rounded-full animate-bounce" />
+                      <div className="w-3 h-3 bg-gold-accent rounded-full animate-bounce delay-100" />
+                      <div className="w-3 h-3 bg-gold-accent rounded-full animate-bounce delay-200" />
                     </div>
                   </div>
                 </div>
@@ -245,7 +250,7 @@ export default function AIChatbot() {
                       variant="outline"
                       size="sm"
                       onClick={() => handleSendMessage(reply)}
-                      className="text-xs bg-white/50 hover:bg-white/80 border-gold-accent text-gray-700"
+                      className="text-xs bg-gradient-to-r from-gold-accent/20 to-amber-400/20 hover:from-gold-accent/30 hover:to-amber-400/30 border-gold-accent text-navy-deep font-medium shadow-sm"
                       data-testid={`button-quick-reply-${index}`}
                     >
                       {reply}
@@ -276,8 +281,8 @@ export default function AIChatbot() {
                 </Button>
               </div>
               
-              <div className="text-xs text-gray-600 mt-2 text-center">
-                <span className="font-medium text-gray-800">Need assistance? Contact us at</span> luxevoyage25@gmail.com
+              <div className="text-xs text-gray-700 mt-2 text-center">
+                <span className="font-semibold text-navy-deep">Need assistance? Contact us at</span> luxevoyage25@gmail.com
               </div>
             </div>
 

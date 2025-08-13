@@ -10,13 +10,15 @@ interface PackageCardProps {
 }
 
 const badgeColors = {
-  gold: "bg-gold-accent text-navy-deep",
-  green: "bg-green-500 text-white",
-  purple: "bg-purple-500 text-white",
-  orange: "bg-orange-500 text-white",
-  pink: "bg-pink-500 text-white",
-  blue: "bg-blue-500 text-white",
-  red: "bg-red-500 text-white",
+  gold: "bg-gradient-to-r from-gold-accent to-amber-400 text-navy-deep",
+  green: "bg-gradient-to-r from-green-500 to-emerald-500 text-white",
+  purple: "bg-gradient-to-r from-purple-500 to-violet-500 text-white",
+  orange: "bg-gradient-to-r from-orange-500 to-red-500 text-white",
+  pink: "bg-gradient-to-r from-pink-500 to-rose-500 text-white",
+  blue: "bg-gradient-to-r from-blue-500 to-indigo-500 text-white",
+  red: "bg-gradient-to-r from-red-500 to-pink-500 text-white",
+  teal: "bg-gradient-to-r from-teal-500 to-cyan-500 text-white",
+  emerald: "bg-gradient-to-r from-emerald-500 to-green-500 text-white",
 };
 
 export default function PackageCard({ package: pkg }: PackageCardProps) {
