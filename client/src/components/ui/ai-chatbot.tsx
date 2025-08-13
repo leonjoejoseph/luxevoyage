@@ -155,7 +155,7 @@ export default function AIChatbot() {
       >
         <Button
           onClick={() => setIsOpen(true)}
-          className="w-16 h-16 rounded-full bg-gold-accent hover:bg-gold-accent/90 text-navy-deep shadow-lg"
+          className="w-16 h-16 rounded-full bg-gold-accent hover:bg-gold-accent/90 text-navy-deep shadow-lg ml-[630px] mr-[630px]"
           data-testid="button-open-chat"
         >
           <MessageSquare className="w-8 h-8" />
