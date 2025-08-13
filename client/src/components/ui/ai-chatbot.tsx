@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageSquare, X, Send, Bot, User, Minimize2, Star } from "lucide-react";
+import { MessageSquare, X, Send, Bot, User, Minimize2, Maximize2, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import GlassmorphismCard from "@/components/ui/glassmorphism-card";
@@ -232,7 +232,7 @@ export default function AIChatbot() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-navy-deep">LuxeVoyage Assistant</h3>
-                    <p className="text-xs text-gray-600">Luxury Chat Support</p>
+                    <p className="text-xs text-navy-deep/80 font-semibold">Luxury Chat Support</p>
                   </div>
                 </div>
                 <div className="flex space-x-2">
@@ -242,7 +242,7 @@ export default function AIChatbot() {
                     size="sm"
                     className="h-8 w-8 p-0"
                   >
-                    <Minimize2 className="w-4 h-4" />
+                    {isMinimized ? <Maximize2 className="w-4 h-4" /> : <Minimize2 className="w-4 h-4" />}
                   </Button>
                   <Button
                     onClick={toggleChat}
@@ -268,7 +268,7 @@ export default function AIChatbot() {
                           className={`max-w-[80%] p-3 rounded-2xl ${
                             message.sender === 'user'
                               ? 'bg-gradient-luxury text-navy-deep'
-                              : 'bg-navy-deep/10 text-gray-800'
+                              : 'bg-white/90 text-gray-800 border border-gray-200'
                           }`}
                         >
                           <p className="text-sm">{message.text}</p>
@@ -384,7 +384,7 @@ export default function AIChatbot() {
                   </div>
 
                   {/* Contact Info */}
-                  <p className="text-sm text-gray-600 text-center">
+                  <p className="text-sm text-navy-deep font-semibold text-center">
                     Need assistance? Contact us at <br/>
                     <span className="text-gold-accent">luxevoyage25@gmail.com</span>
                   </p>

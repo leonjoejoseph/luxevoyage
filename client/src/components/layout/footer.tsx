@@ -90,7 +90,7 @@ export default function Footer() {
                 const Icon = item.icon;
                 return (
                   <li key={index} className="flex items-center text-gray-300">
-                    <Icon className="w-4 h-4 mr-3 text-gold-accent" />
+                    <Icon className="w-5 h-5 mr-3 text-gold-accent" />
                     {item.text}
                   </li>
                 );
