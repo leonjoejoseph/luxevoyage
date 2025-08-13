@@ -8,11 +8,11 @@ interface PackageFiltersProps {
 
 const filters = [
   { key: "all", label: "All Packages" },
-  { key: "budget", label: "Budget Friendly" },
-  { key: "luxury", label: "Ultra Luxury" },
-  { key: "private", label: "Private Tours" },
-  { key: "adventure", label: "Adventure" },
+  { key: "ultra-luxury", label: "Ultra Luxury" },
+  { key: "wine-master", label: "Wine Master" },
   { key: "cultural", label: "Cultural" },
+  { key: "cultural-immersion", label: "Cultural Immersion" },
+  { key: "private-suite", label: "Private Suite" },
 ];
 
 export default function PackageFilters({ activeFilter, onFilterChange }: PackageFiltersProps) {

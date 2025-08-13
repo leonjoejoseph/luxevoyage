@@ -2,102 +2,18 @@ import { motion, AnimatePresence } from "framer-motion";
 import PackageCard from "@/components/packages/package-card";
 import { PackageType } from "@/types";
 
-// Budget Friendly Packages
-const budgetPackages: PackageType[] = [
-  {
-    id: "swiss-alps-trek",
-    title: "Swiss Alps Trek",
-    description: "5 days hiking with luxury mountain lodges",
-    price: 2799,
-    duration: "5 Days / 4 Nights",
-    rating: 4.7,
-    reviews: 89,
-    category: ["adventure", "budget"],
-    image: "https://images.unsplash.com/photo-1517079495967-03aed29f98b5?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    badge: "Adventure",
-    badgeColor: "green",
-    includes: [
-      "Professional mountain guide",
-      "All hiking equipment",
-      "Gourmet mountain meals",
-      "Cable car passes",
-      "Photography workshop",
-    ],
-  },
-  {
-    id: "angkor-wonder",
-    title: "Angkor Wonder",
-    description: "4 days exploring ancient temples with expert guides",
-    price: 1899,
-    duration: "4 Days / 3 Nights",
-    rating: 4.8,
-    reviews: 156,
-    category: ["cultural", "budget"],
-    image: "https://images.unsplash.com/photo-1584607889131-98d098f01f60?q=80&w=943&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    badge: "Cultural",
-    badgeColor: "purple",
-    includes: [
-      "Private temple tours",
-      "Sunrise Angkor Wat visit",
-      "Traditional Khmer cooking class",
-      "Cultural performances",
-      "Professional photographer",
-    ],
-  },
-  {
-    id: "kenya-safari",
-    title: "Kenya Safari Adventure",
-    description: "6 days Big Five safari with luxury tented camps",
-    price: 3499,
-    duration: "6 Days / 5 Nights",
-    rating: 4.9,
-    reviews: 203,
-    category: ["adventure", "budget"],
-    image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80",
-    badge: "Safari",
-    badgeColor: "orange",
-    includes: [
-      "Professional safari guide",
-      "Game drives in Masai Mara",
-      "Cultural village visit",
-      "Hot air balloon safari",
-      "Bush breakfast experience",
-    ],
-  },
-  {
-    id: "vietnam-adventure",
-    title: "Vietnam Discovery",
-    description: "7 days cultural journey from Hanoi to Ho Chi Minh",
-    price: 2299,
-    duration: "7 Days / 6 Nights",
-    rating: 4.6,
-    reviews: 142,
-    category: ["cultural", "budget"],
-    image: "https://images.unsplash.com/photo-1539650116574-75c0c6d0d95e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-    badge: "Discovery",
-    badgeColor: "blue",
-    includes: [
-      "Internal flights included",
-      "Street food tours",
-      "Halong Bay cruise",
-      "Local guide services",
-      "Traditional craft workshops",
-    ],
-  },
-];
-
 // Ultra Luxury Packages
 const ultraLuxuryPackages: PackageType[] = [
   {
     id: "maldives-paradise",
-    title: "Maldives Paradise Resort",
+    title: "Maldives Ocean Villa Experience",
     description: "7 nights in overwater villa with private butler service",
-    price: 8999,
+    price: 4299,
     duration: "7 Days / 6 Nights",
     rating: 4.9,
     reviews: 127,
-    category: ["luxury", "cultural"],
-    image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80",
+    category: ["luxury"],
+    image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
     badge: "Ultra Luxury",
     badgeColor: "gold",
     includes: [
@@ -109,65 +25,65 @@ const ultraLuxuryPackages: PackageType[] = [
     ],
   },
   {
-    id: "bali-private-villa-ultra",
-    title: "Bali Ultra Luxury Villa",
-    description: "10 nights in exclusive clifftop villa with infinity pool",
-    price: 12499,
-    duration: "10 Days / 9 Nights",
-    rating: 5.0,
-    reviews: 89,
-    category: ["luxury", "private"],
-    image: "https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80",
-    badge: "Ultra Luxury",
-    badgeColor: "gold",
-    includes: [
-      "Private jet transfers",
-      "24/7 personal chef",
-      "Daily spa treatments",
-      "Private temple tours",
-      "Helicopter island hopping",
-    ],
-  },
-  {
     id: "antarctica-expedition",
     title: "Antarctica Luxury Expedition",
-    description: "12 days ultimate polar adventure with luxury icebreaker",
+    description: "12 days of luxury exploration in the world's last frontier",
     price: 28999,
     duration: "12 Days / 11 Nights",
-    rating: 4.8,
+    rating: 5.0,
     reviews: 45,
-    category: ["luxury", "adventure"],
-    image: "https://images.unsplash.com/photo-1674784764904-2200fd51e1c9?q=80&w=1033&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    category: ["luxury"],
+    image: "https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
     badge: "Ultra Luxury",
     badgeColor: "gold",
     includes: [
-      "Luxury icebreaker suite",
+      "Luxury expedition yacht",
       "Expert naturalist guides",
-      "Zodiac wildlife tours",
-      "Photography workshops",
-      "Champagne ice tasting",
+      "All meals and premium beverages",
+      "Zodiac excursions",
+      "Wildlife photography equipment",
     ],
   },
   {
     id: "dubai-penthouse",
-    title: "Dubai Royal Penthouse",
-    description: "5 nights in Burj Al Arab Royal Suite with helicopter access",
+    title: "Dubai Penthouse Suite",
+    description: "5 nights in Burj Al Arab Royal Suite with exclusive experiences",
     price: 22999,
     duration: "5 Days / 4 Nights",
     rating: 5.0,
-    reviews: 112,
-    category: ["luxury", "private"],
-    image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80",
+    reviews: 67,
+    category: ["luxury"],
+    image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
     badge: "Ultra Luxury",
     badgeColor: "gold",
     includes: [
-      "Royal Suite with butler",
       "Helicopter transfers",
+      "Royal Suite accommodation",
       "Private desert safari",
       "Yacht charter",
-      "Shopping with personal stylist",
+      "Personal shopping stylist",
     ],
   },
+  {
+    id: "swiss-alpine-luxury",
+    title: "Swiss Alpine Luxury Experience",
+    description: "6 days of mountain luxury with helicopter skiing and Michelin dining",
+    price: 3899,
+    duration: "6 Days / 5 Nights",
+    rating: 4.8,
+    reviews: 134,
+    category: ["luxury"],
+    image: "https://images.unsplash.com/photo-1551524164-687a55dd1126?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    badge: "Ultra Luxury",
+    badgeColor: "gold",
+    includes: [
+      "Helicopter skiing",
+      "Michelin-starred dining",
+      "Luxury spa treatments",
+      "Private alpine tours",
+      "Premium chalet accommodation",
+    ],
+  }
 ];
 
 // Wine Master Packages
@@ -175,13 +91,13 @@ const wineMasterPackages: PackageType[] = [
   {
     id: "tuscany-wine-estate",
     title: "Tuscany Wine Estate Experience",
-    description: "14 nights in private vineyard with wine master",
+    description: "14 nights in private vineyard with master sommelier",
     price: 15999,
     duration: "14 Days / 13 Nights",
     rating: 4.9,
     reviews: 156,
-    category: ["luxury", "cultural", "private"],
-    image: "https://images.unsplash.com/photo-1523531294919-4bcd7c65e216?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80",
+    category: ["wine"],
+    image: "https://images.unsplash.com/photo-1523531294919-4bcd7c65e216?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
     badge: "Wine Master",
     badgeColor: "purple",
     includes: [
@@ -193,379 +109,365 @@ const wineMasterPackages: PackageType[] = [
     ],
   },
   {
-    id: "bordeaux-wine-tour",
-    title: "Bordeaux Grand Cru Experience",
-    description: "10 days touring world-famous châteaux with wine experts",
-    price: 11299,
+    id: "bordeaux-wine-journey",
+    title: "Bordeaux Wine Master Journey",
+    description: "10 nights exploring France's premier wine region",
+    price: 12499,
     duration: "10 Days / 9 Nights",
     rating: 4.8,
     reviews: 89,
-    category: ["luxury", "cultural"],
-    image: "https://images.unsplash.com/photo-1560148489-f637c2bc63ee?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    category: ["wine"],
+    image: "https://images.unsplash.com/photo-1506377247737-2628ba151e97?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
     badge: "Wine Master",
     badgeColor: "purple",
     includes: [
-      "Château private tastings",
-      "Master sommelier guide",
-      "Michelin-starred dining",
-      "Vintage cellar tours",
-      "Wine blending workshop",
+      "Château accommodations",
+      "Private wine tastings",
+      "Master sommelier guidance",
+      "Truffle hunting experience",
+      "Michelin restaurant dinners",
     ],
   },
   {
-    id: "napa-valley-retreat",
-    title: "Napa Valley Vintner's Retreat",
-    description: "8 days exclusive access to California's finest wineries",
-    price: 8799,
+    id: "napa-valley-estate",
+    title: "Napa Valley Estate Experience",
+    description: "8 nights in exclusive winery with harvest participation",
+    price: 9999,
     duration: "8 Days / 7 Nights",
     rating: 4.7,
-    reviews: 124,
-    category: ["luxury", "private"],
+    reviews: 112,
+    category: ["wine"],
     image: "https://images.unsplash.com/photo-1510076857177-7470076d4098?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
     badge: "Wine Master",
     badgeColor: "purple",
     includes: [
-      "Private winery tours",
-      "Celebrity chef dinners",
+      "Vineyard estate accommodation",
       "Harvest participation",
-      "Hot air balloon rides",
-      "Wine investment consultation",
+      "Private wine blending",
+      "Helicopter vineyard tours",
+      "Fine dining experiences",
     ],
   },
   {
     id: "champagne-region-tour",
-    title: "Champagne Region Prestige Tour",
-    description: "6 days exploring prestigious champagne houses",
-    price: 6999,
+    title: "Champagne Region Master Tour",
+    description: "6 nights in luxury château with exclusive cellar access",
+    price: 8799,
     duration: "6 Days / 5 Nights",
     rating: 4.9,
-    reviews: 76,
-    category: ["luxury", "cultural"],
-    image: "https://images.unsplash.com/photo-1569275808145-6a3aa6b8b3de?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    reviews: 78,
+    category: ["wine"],
+    image: "https://images.unsplash.com/photo-1510138497149-d1af7d9d2524?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
     badge: "Wine Master",
     badgeColor: "purple",
     includes: [
-      "Dom Pérignon cellar tours",
-      "Champagne master classes",
-      "Reims cathedral visit",
-      "Private château dinners",
-      "Vintage champagne collection",
+      "Luxury château accommodation",
+      "Exclusive cellar access",
+      "Champagne tasting sessions",
+      "Private chef experiences",
+      "Historic town tours",
+    ],
+  }
+];
+
+// Cultural Packages
+const culturalPackages: PackageType[] = [
+  {
+    id: "angkor-wonder",
+    title: "Angkor Wonder Experience",
+    description: "5 days exploring ancient temples with expert archaeologist guides",
+    price: 1899,
+    duration: "5 Days / 4 Nights",
+    rating: 4.6,
+    reviews: 203,
+    category: ["cultural"],
+    image: "https://images.unsplash.com/photo-1539650116574-75c0c6d73aeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    badge: "Cultural",
+    badgeColor: "blue",
+    includes: [
+      "Expert archaeologist guide",
+      "Temple complex access",
+      "Traditional Khmer meals",
+      "Cultural performances",
+      "Local artisan workshops",
     ],
   },
+  {
+    id: "moroccan-imperial-cities",
+    title: "Moroccan Imperial Cities",
+    description: "9 days through Morocco's historic imperial cities",
+    price: 3299,
+    duration: "9 Days / 8 Nights",
+    rating: 4.7,
+    reviews: 167,
+    category: ["cultural"],
+    image: "https://images.unsplash.com/photo-1539650116574-75c0c6d73aeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    badge: "Cultural",
+    badgeColor: "blue",
+    includes: [
+      "Historic riad accommodations",
+      "Local guide expertise",
+      "Traditional cooking classes",
+      "Artisan workshop visits",
+      "Desert excursion",
+    ],
+  },
+  {
+    id: "greek-mythology-tour",
+    title: "Greek Mythology Experience",
+    description: "8 days exploring ancient Greece with mythology experts",
+    price: 2799,
+    duration: "8 Days / 7 Nights",
+    rating: 4.5,
+    reviews: 145,
+    category: ["cultural"],
+    image: "https://images.unsplash.com/photo-1555993539-1732b0258235?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    badge: "Cultural",
+    badgeColor: "blue",
+    includes: [
+      "Expert mythology guides",
+      "Archaeological site access",
+      "Traditional Greek cuisine",
+      "Island hopping experience",
+      "Ancient theater performances",
+    ],
+  },
+  {
+    id: "egypt-pharaohs-journey",
+    title: "Egypt Pharaohs Journey",
+    description: "10 days discovering ancient Egypt with Egyptologists",
+    price: 4199,
+    duration: "10 Days / 9 Nights",
+    rating: 4.8,
+    reviews: 198,
+    category: ["cultural"],
+    image: "https://images.unsplash.com/photo-1539650116574-75c0c6d73aeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    badge: "Cultural",
+    badgeColor: "blue",
+    includes: [
+      "Expert Egyptologist guides",
+      "Pyramid complex access",
+      "Nile river cruise",
+      "Valley of the Kings tour",
+      "Traditional Egyptian experiences",
+    ],
+  }
 ];
 
 // Cultural Immersion Packages
 const culturalImmersionPackages: PackageType[] = [
   {
     id: "japan-private-ryokan",
-    title: "Japan Traditional Ryokan",
-    description: "8 nights in exclusive traditional inn with kaiseki dining",
+    title: "Japan Private Ryokan Experience",
+    description: "8 days of cultural immersion with tea ceremony and Mount Fuji helicopter tour",
     price: 11299,
     duration: "8 Days / 7 Nights",
     rating: 5.0,
-    reviews: 74,
-    category: ["luxury", "cultural", "private"],
-    image: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80",
+    reviews: 94,
+    category: ["cultural-immersion"],
+    image: "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
     badge: "Cultural Immersion",
-    badgeColor: "red",
+    badgeColor: "teal",
     includes: [
-      "Private ryokan with hot springs",
+      "Private ryokan stays",
+      "Tea ceremony with master",
       "Daily kaiseki meals",
-      "Tea ceremony master",
-      "Private temple meditation",
       "Mount Fuji helicopter tour",
+      "Private temple meditation",
     ],
   },
   {
-    id: "bhutan-spiritual-journey",
-    title: "Bhutan Spiritual Journey",
-    description: "12 days immersive spiritual and cultural experience",
-    price: 9499,
+    id: "bhutan-monastery-retreat",
+    title: "Bhutan Monastery Retreat",
+    description: "12 days in the Last Shangri-La with monk-guided meditation",
+    price: 8999,
     duration: "12 Days / 11 Nights",
-    rating: 4.8,
-    reviews: 65,
-    category: ["cultural", "luxury"],
-    image: "https://images.unsplash.com/photo-1538837804644-c47b7d023e90?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-    badge: "Cultural Immersion",
-    badgeColor: "red",
-    includes: [
-      "Tiger's Nest monastery trek",
-      "Private meditation sessions",
-      "Traditional archery lessons",
-      "Dzong fortress tours",
-      "Buddhist ceremony participation",
-    ],
-  },
-  {
-    id: "morocco-imperial-cities",
-    title: "Morocco Imperial Cities",
-    description: "10 days exploring ancient cities and traditions",
-    price: 5299,
-    duration: "10 Days / 9 Nights",
-    rating: 4.6,
-    reviews: 118,
-    category: ["cultural", "luxury"],
-    image: "https://images.unsplash.com/photo-1539650116574-75c0c6d0d95e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-    badge: "Cultural Immersion",
-    badgeColor: "red",
-    includes: [
-      "Riad accommodations",
-      "Medina guided tours",
-      "Berber desert experience",
-      "Traditional craft workshops",
-      "Moroccan cooking classes",
-    ],
-  },
-  {
-    id: "peru-inca-heritage",
-    title: "Peru Inca Heritage Experience",
-    description: "9 days discovering ancient Inca civilization",
-    price: 4799,
-    duration: "9 Days / 8 Nights",
-    rating: 4.7,
-    reviews: 156,
-    category: ["cultural", "adventure"],
-    image: "https://images.unsplash.com/photo-1587595431973-160d0d94add1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-    badge: "Cultural Immersion",
-    badgeColor: "red",
-    includes: [
-      "Machu Picchu sunrise tour",
-      "Sacred Valley exploration",
-      "Traditional weaving workshops",
-      "Andean cooking experiences",
-      "Luxury train to Aguas Calientes",
-    ],
-  },
-];
-
-// Private Suite/Tours Packages
-const privateSuitePackages: PackageType[] = [
-  {
-    id: "patagonia-private-expedition",
-    title: "Patagonia Private Expedition",
-    description: "9 days exclusive wilderness exploration with expert guides",
-    price: 7899,
-    duration: "9 Days / 8 Nights",
     rating: 4.9,
     reviews: 67,
-    category: ["adventure", "private"],
-    image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80",
-    badge: "Private Suite",
-    badgeColor: "gold",
+    category: ["cultural-immersion"],
+    image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    badge: "Cultural Immersion",
+    badgeColor: "teal",
     includes: [
-      "Private charter flights",
-      "Expert wilderness guides",
-      "Luxury eco-lodges",
-      "Photography equipment",
-      "Glacier trekking gear",
+      "Monastery accommodations",
+      "Monk-guided meditation",
+      "Traditional Bhutanese meals",
+      "Himalayan trekking",
+      "Cultural festival participation",
     ],
   },
   {
-    id: "galapagos-private-yacht",
-    title: "Galápagos Private Yacht",
-    description: "7 days exclusive yacht charter with naturalist guide",
-    price: 16999,
-    duration: "7 Days / 6 Nights",
+    id: "peru-inca-immersion",
+    title: "Peru Inca Immersion",
+    description: "10 days living with local communities and exploring Machu Picchu",
+    price: 5799,
+    duration: "10 Days / 9 Nights",
+    rating: 4.8,
+    reviews: 156,
+    category: ["cultural-immersion"],
+    image: "https://images.unsplash.com/photo-1526392060635-9d6019884377?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    badge: "Cultural Immersion",
+    badgeColor: "teal",
+    includes: [
+      "Community homestays",
+      "Traditional weaving classes",
+      "Sacred Valley exploration",
+      "Machu Picchu sunrise access",
+      "Andean cooking experiences",
+    ],
+  },
+  {
+    id: "tibet-spiritual-journey",
+    title: "Tibet Spiritual Journey",
+    description: "14 days on the roof of the world with spiritual masters",
+    price: 12799,
+    duration: "14 Days / 13 Nights",
     rating: 5.0,
-    reviews: 43,
-    category: ["luxury", "private", "adventure"],
-    image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-    badge: "Private Suite",
-    badgeColor: "gold",
-    includes: [
-      "Private luxury yacht",
-      "Expert naturalist guide",
-      "Snorkeling equipment",
-      "Wildlife photography gear",
-      "Gourmet meals onboard",
-    ],
-  },
-  {
-    id: "african-private-safari",
-    title: "African Private Safari Lodge",
-    description: "8 days exclusive Big Five experience in private reserve",
-    price: 13499,
-    duration: "8 Days / 7 Nights",
-    rating: 4.9,
     reviews: 89,
-    category: ["luxury", "private", "adventure"],
-    image: "https://images.unsplash.com/photo-1551582045-6ec9c11d8697?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-    badge: "Private Suite",
-    badgeColor: "gold",
+    category: ["cultural-immersion"],
+    image: "https://images.unsplash.com/photo-1570197788417-0e82375c9371?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    badge: "Cultural Immersion",
+    badgeColor: "teal",
     includes: [
-      "Private game reserve access",
-      "Luxury safari lodge suite",
-      "Personal safari guide",
-      "Bush dining experiences",
-      "Conservation project visits",
+      "Monastery accommodations",
+      "Spiritual master guidance",
+      "Himalayan meditation retreats",
+      "Potala Palace access",
+      "Traditional Tibetan ceremonies",
     ],
-  },
+  }
+];
+
+// Private Suite Packages
+const privateSuitePackages: PackageType[] = [
   {
     id: "bali-private-villa",
     title: "Bali Private Cliff Villa",
-    description: "7 days in exclusive cliff-side villa with personal chef",
+    description: "7 nights in exclusive clifftop villa with personal chef and butler",
     price: 8599,
     duration: "7 Days / 6 Nights",
-    rating: 4.9,
+    rating: 5.0,
     reviews: 89,
-    category: ["luxury", "private"],
-    image: "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80",
+    category: ["private"],
+    image: "https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
     badge: "Private Suite",
-    badgeColor: "gold",
+    badgeColor: "emerald",
     includes: [
-      "Private cliff-side villa",
+      "Private clifftop villa",
       "Personal chef and butler",
       "Helicopter temple tours",
       "Traditional spa treatments",
-      "Sunset yacht charter",
+      "Sunset yacht charters",
     ],
   },
-];
-
-// Adventure Packages
-const adventurePackages: PackageType[] = [
   {
-    id: "iceland-northern-lights",
-    title: "Iceland Northern Lights Adventure",
-    description: "5 days aurora hunting with luxury glacier lodge",
+    id: "iceland-glass-igloo",
+    title: "Iceland Glass Igloo Suite",
+    description: "5 nights hunting Northern Lights in luxury glass accommodation",
     price: 6299,
     duration: "5 Days / 4 Nights",
-    rating: 4.7,
-    reviews: 128,
-    category: ["adventure", "luxury"],
-    image: "https://images.unsplash.com/photo-1531366936337-7c912a4589a7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80",
-    badge: "Adventure",
-    badgeColor: "green",
+    rating: 4.9,
+    reviews: 123,
+    category: ["private"],
+    image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    badge: "Private Suite",
+    badgeColor: "emerald",
     includes: [
       "Glass igloo accommodation",
-      "Aurora hunting tours",
+      "Northern lights hunting",
       "Blue Lagoon spa access",
-      "Glacier hiking expedition",
-      "Reykjavik city tour",
+      "Glacier hiking expeditions",
+      "Photography workshops",
     ],
   },
   {
-    id: "norway-fjords",
-    title: "Norway Fjords Explorer",
-    description: "9 days scenic railway and fjord cruise combination",
+    id: "norway-fjord-suite",
+    title: "Norway Fjords Private Suite",
+    description: "9 days in luxury fjordside accommodation with scenic railways",
     price: 9299,
     duration: "9 Days / 8 Nights",
-    rating: 4.7,
-    reviews: 134,
-    category: ["adventure", "luxury"],
-    image: "https://images.unsplash.com/photo-1627894483-2000c8b7b925?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80",
-    badge: "Adventure",
-    badgeColor: "green",
-    includes: [
-      "Premium fjord cruise",
-      "Scenic railway journeys",
-      "Northern lights hunting",
-      "Gourmet Nordic cuisine",
-      "Cultural performances",
-    ],
-  },
-  {
-    id: "new-zealand-extreme",
-    title: "New Zealand Extreme Adventure",
-    description: "11 days adrenaline-packed activities across both islands",
-    price: 7599,
-    duration: "11 Days / 10 Nights",
     rating: 4.8,
     reviews: 167,
-    category: ["adventure", "luxury"],
+    category: ["private"],
     image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-    badge: "Adventure",
-    badgeColor: "green",
+    badge: "Private Suite",
+    badgeColor: "emerald",
     includes: [
-      "Bungee jumping experiences",
-      "Helicopter glacier tours",
-      "White water rafting",
-      "Skydiving adventures",
-      "Luxury lodge accommodations",
+      "Fjordside private suite",
+      "Scenic railway journeys",
+      "Premium fjord cruises",
+      "Gourmet Nordic cuisine",
+      "Northern lights expeditions",
     ],
   },
   {
-    id: "himalaya-base-camp",
-    title: "Himalaya Base Camp Trek",
-    description: "14 days guided trek to Everest Base Camp with luxury stops",
-    price: 8999,
-    duration: "14 Days / 13 Nights",
-    rating: 4.6,
-    reviews: 93,
-    category: ["adventure", "cultural"],
-    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-    badge: "Adventure",
-    badgeColor: "green",
+    id: "patagonia-eco-lodge",
+    title: "Patagonia Private Eco-Lodge",
+    description: "9 days wilderness exploration with luxury eco-accommodation",
+    price: 7899,
+    duration: "9 Days / 8 Nights",
+    rating: 4.7,
+    reviews: 145,
+    category: ["private"],
+    image: "https://images.unsplash.com/photo-1520637836862-4d197d17c50a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    badge: "Private Suite",
+    badgeColor: "emerald",
     includes: [
-      "Expert Sherpa guides",
-      "Luxury tea house stays",
-      "Mountain helicopter rescue",
-      "Traditional monastery visits",
-      "Professional photography",
+      "Private eco-lodge",
+      "Expert wilderness guides",
+      "Glacier trekking",
+      "Wildlife photography",
+      "Gourmet outdoor dining",
     ],
-  },
-];
-
-const packages: PackageType[] = [
-  ...budgetPackages,
-  ...ultraLuxuryPackages,
-  ...wineMasterPackages,
-  ...culturalImmersionPackages,
-  ...privateSuitePackages,
-  ...adventurePackages,
+  }
 ];
 
 interface PackageGridProps {
-  activeFilter: string;
+  category: "all" | "ultra-luxury" | "wine-master" | "cultural" | "cultural-immersion" | "private-suite";
 }
 
-export default function PackageGrid({ activeFilter }: PackageGridProps) {
-  const filteredPackages = packages.filter((pkg) => {
-    if (activeFilter === "all") return true;
-    return pkg.category.includes(activeFilter);
-  });
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.1,
-      },
-    },
+export default function PackageGrid({ category }: PackageGridProps) {
+  const getPackagesByCategory = () => {
+    switch (category) {
+      case "ultra-luxury":
+        return ultraLuxuryPackages;
+      case "wine-master":
+        return wineMasterPackages;
+      case "cultural":
+        return culturalPackages;
+      case "cultural-immersion":
+        return culturalImmersionPackages;
+      case "private-suite":
+        return privateSuitePackages;
+      case "all":
+      default:
+        return [
+          ...ultraLuxuryPackages.slice(0, 2),
+          ...wineMasterPackages.slice(0, 2),
+          ...culturalPackages.slice(0, 2),
+          ...culturalImmersionPackages.slice(0, 2),
+          ...privateSuitePackages.slice(0, 2)
+        ];
+    }
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 0.4, ease: "easeOut" },
-    },
-  };
+  const packages = getPackagesByCategory();
 
   return (
-    <motion.div
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-      className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-    >
+    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
       <AnimatePresence>
-        {filteredPackages.map((pkg) => (
+        {packages.map((pkg, index) => (
           <motion.div
             key={pkg.id}
-            variants={itemVariants}
-            layout
-            initial="hidden"
-            animate="visible"
-            exit="hidden"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -50 }}
+            transition={{ duration: 0.6, delay: index * 0.1 }}
           >
             <PackageCard package={pkg} />
           </motion.div>
         ))}
       </AnimatePresence>
-    </motion.div>
+    </div>
   );
 }

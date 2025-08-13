@@ -4,16 +4,20 @@ LuxeVoyage is a premium luxury travel agency website built as a modern, interact
 
 # Recent Changes
 
-## 2025-08-12: Comprehensive Chatbot and Feature Updates
-- Implemented intelligent AI chatbot with OpenAI integration and local fallback system
-- Added travel-only response filtering - responds "Out of topic Question" for non-travel queries
-- Created 5-star rating system with feedback collection and social media integration
-- Expanded travel packages (Iceland Northern Lights, Bali Private Villa, Norway Fjords)
-- Enhanced contact form with 14 destinations and budget ranges up to $100K+
-- Updated all contact emails to luxevoyage25@gmail.com
-
-- Added conditional navigation for authenticated users
-- Implemented robust error handling for API quota limits with intelligent fallbacks
+## 2025-08-13: Authentication & Package Categorization Updates
+- Implemented Replit authentication system with Google/Apple ID login support
+- Fixed package duplicates and categorized packages into 5 distinct topics:
+  * Ultra Luxury (Antarctica, Dubai Penthouse, Maldives, Swiss Alps)
+  * Wine Master (Tuscany, Bordeaux, Napa Valley, Champagne Region)
+  * Cultural (Angkor, Morocco, Greece, Egypt)
+  * Cultural Immersion (Japan Ryokan, Bhutan Monastery, Peru Inca, Tibet)
+  * Private Suite (Bali Cliff Villa, Iceland Glass Igloo, Norway Fjords, Patagonia)
+- Enhanced AI chatbot with improved responsive design and proper minimize/maximize functionality
+- Fixed footer contact icon sizing to match phone and location icons
+- Added comprehensive admin dashboard for booking management (leonjoejoseph2010@gmail.com access)
+- Implemented chat history email forwarding to luxevoyage25@gmail.com
+- Set database start date to August 20th, 2025
+- Created landing page for non-authenticated users with role-based access control
 
 # User Preferences
 

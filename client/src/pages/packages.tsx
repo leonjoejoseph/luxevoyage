@@ -35,7 +35,7 @@ export default function Packages() {
             />
           </div>
 
-          <PackageGrid activeFilter={activeFilter} />
+          <PackageGrid category={activeFilter as any} />
         </div>
       </div>
     </motion.div>

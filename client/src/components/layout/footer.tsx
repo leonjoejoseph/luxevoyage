@@ -14,9 +14,9 @@ const quickLinks = [
 ];
 
 const contactInfo = [
-  { icon: Phone, text: "+965 2222 9999" },
-  { icon: Mail, text: "luxevoyage25@gmail.com" },
-  { icon: MapPin, text: "Carmel School Kuwait" },
+  { icon: Phone, text: "+965 2222 9999", size: "w-5 h-5" },
+  { icon: Mail, text: "luxevoyage25@gmail.com", size: "w-5 h-5" },
+  { icon: MapPin, text: "Carmel School Kuwait", size: "w-5 h-5" },
 ];
 
 export default function Footer() {
@@ -90,7 +90,7 @@ export default function Footer() {
                 const Icon = item.icon;
                 return (
                   <li key={index} className="flex items-center text-gray-300">
-                    <Icon className="w-5 h-5 mr-3 text-gold-accent" />
+                    <Icon className={`${item.size} mr-3 text-gold-accent`} />
                     {item.text}
                   </li>
                 );
