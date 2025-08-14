@@ -13,7 +13,8 @@ const ultraLuxuryPackages: PackageType[] = [
     rating: 4.9,
     reviews: 127,
     category: ["luxury"],
-    image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    image:
+      "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
     badge: "Ultra Luxury",
     badgeColor: "gold",
     includes: [
@@ -33,7 +34,8 @@ const ultraLuxuryPackages: PackageType[] = [
     rating: 5.0,
     reviews: 45,
     category: ["luxury"],
-    image: "https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    image:
+      "https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
     badge: "Ultra Luxury",
     badgeColor: "gold",
     includes: [
@@ -47,13 +49,15 @@ const ultraLuxuryPackages: PackageType[] = [
   {
     id: "dubai-penthouse",
     title: "Dubai Penthouse Suite",
-    description: "5 nights in Burj Al Arab Royal Suite with exclusive experiences",
+    description:
+      "5 nights in Burj Al Arab Royal Suite with exclusive experiences",
     price: 22999,
     duration: "5 Days / 4 Nights",
     rating: 5.0,
     reviews: 67,
     category: ["luxury"],
-    image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    image:
+      "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
     badge: "Ultra Luxury",
     badgeColor: "gold",
     includes: [
@@ -67,13 +71,15 @@ const ultraLuxuryPackages: PackageType[] = [
   {
     id: "swiss-alpine-luxury",
     title: "Swiss Alpine Luxury Experience",
-    description: "6 days of mountain luxury with helicopter skiing and Michelin dining",
+    description:
+      "6 days of mountain luxury with helicopter skiing and Michelin dining",
     price: 3899,
     duration: "6 Days / 5 Nights",
     rating: 4.8,
     reviews: 134,
     category: ["luxury"],
-    image: "https://images.unsplash.com/photo-1551524164-687a55dd1126?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    image:
+      "https://images.unsplash.com/photo-1551524164-687a55dd1126?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
     badge: "Ultra Luxury",
     badgeColor: "gold",
     includes: [
@@ -83,7 +89,7 @@ const ultraLuxuryPackages: PackageType[] = [
       "Private alpine tours",
       "Premium chalet accommodation",
     ],
-  }
+  },
 ];
 
 // Wine Master Packages
@@ -97,7 +103,8 @@ const wineMasterPackages: PackageType[] = [
     rating: 4.9,
     reviews: 156,
     category: ["wine"],
-    image: "https://images.unsplash.com/photo-1523531294919-4bcd7c65e216?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    image:
+      "https://images.unsplash.com/photo-1523531294919-4bcd7c65e216?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
     badge: "Wine Master",
     badgeColor: "purple",
     includes: [
@@ -117,7 +124,8 @@ const wineMasterPackages: PackageType[] = [
     rating: 4.8,
     reviews: 89,
     category: ["wine"],
-    image: "https://images.unsplash.com/photo-1506377247737-2628ba151e97?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    image:
+      "https://plus.unsplash.com/premium_photo-1690122041588-101ecf4733cc?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     badge: "Wine Master",
     badgeColor: "purple",
     includes: [
@@ -137,7 +145,8 @@ const wineMasterPackages: PackageType[] = [
     rating: 4.7,
     reviews: 112,
     category: ["wine"],
-    image: "https://images.unsplash.com/photo-1510076857177-7470076d4098?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    image:
+      "https://images.unsplash.com/photo-1510076857177-7470076d4098?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
     badge: "Wine Master",
     badgeColor: "purple",
     includes: [
@@ -157,7 +166,8 @@ const wineMasterPackages: PackageType[] = [
     rating: 4.9,
     reviews: 78,
     category: ["wine"],
-    image: "https://images.unsplash.com/photo-1510138497149-d1af7d9d2524?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    image:
+      "https://images.unsplash.com/photo-1510138497149-d1af7d9d2524?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
     badge: "Wine Master",
     badgeColor: "purple",
     includes: [
@@ -167,7 +177,7 @@ const wineMasterPackages: PackageType[] = [
       "Private chef experiences",
       "Historic town tours",
     ],
-  }
+  },
 ];
 
 // Cultural Packages
@@ -175,13 +185,15 @@ const culturalPackages: PackageType[] = [
   {
     id: "angkor-wonder",
     title: "Angkor Wonder Experience",
-    description: "5 days exploring ancient temples with expert archaeologist guides",
+    description:
+      "5 days exploring ancient temples with expert archaeologist guides",
     price: 1899,
     duration: "5 Days / 4 Nights",
     rating: 4.6,
     reviews: 203,
     category: ["cultural"],
-    image: "https://images.unsplash.com/photo-1539650116574-75c0c6d73aeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    image:
+      "https://images.unsplash.com/photo-1585416684040-564579ed35a9?q=80&w=876&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     badge: "Cultural",
     badgeColor: "blue",
     includes: [
@@ -201,7 +213,8 @@ const culturalPackages: PackageType[] = [
     rating: 4.7,
     reviews: 167,
     category: ["cultural"],
-    image: "https://images.unsplash.com/photo-1558436914-8c2b5fa1fd8d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    image:
+      "https://images.unsplash.com/photo-1744931423931-1071256e502a?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     badge: "Cultural",
     badgeColor: "blue",
     includes: [
@@ -221,7 +234,8 @@ const culturalPackages: PackageType[] = [
     rating: 4.5,
     reviews: 145,
     category: ["cultural"],
-    image: "https://images.unsplash.com/photo-1555993539-1732b0258235?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    image:
+      "https://images.unsplash.com/photo-1555993539-1732b0258235?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
     badge: "Cultural",
     badgeColor: "blue",
     includes: [
@@ -241,7 +255,8 @@ const culturalPackages: PackageType[] = [
     rating: 4.8,
     reviews: 198,
     category: ["cultural"],
-    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    image:
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
     badge: "Cultural",
     badgeColor: "blue",
     includes: [
@@ -251,7 +266,7 @@ const culturalPackages: PackageType[] = [
       "Valley of the Kings tour",
       "Traditional Egyptian experiences",
     ],
-  }
+  },
 ];
 
 // Cultural Immersion Packages
@@ -259,13 +274,15 @@ const culturalImmersionPackages: PackageType[] = [
   {
     id: "japan-private-ryokan",
     title: "Japan Private Ryokan Experience",
-    description: "8 days of cultural immersion with tea ceremony and Mount Fuji helicopter tour",
+    description:
+      "8 days of cultural immersion with tea ceremony and Mount Fuji helicopter tour",
     price: 11299,
     duration: "8 Days / 7 Nights",
     rating: 5.0,
     reviews: 94,
     category: ["cultural-immersion"],
-    image: "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    image:
+      "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
     badge: "Cultural Immersion",
     badgeColor: "teal",
     includes: [
@@ -285,7 +302,8 @@ const culturalImmersionPackages: PackageType[] = [
     rating: 4.9,
     reviews: 67,
     category: ["cultural-immersion"],
-    image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    image:
+      "https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
     badge: "Cultural Immersion",
     badgeColor: "teal",
     includes: [
@@ -299,13 +317,15 @@ const culturalImmersionPackages: PackageType[] = [
   {
     id: "peru-inca-immersion",
     title: "Peru Inca Immersion",
-    description: "10 days living with local communities and exploring Machu Picchu",
+    description:
+      "10 days living with local communities and exploring Machu Picchu",
     price: 5799,
     duration: "10 Days / 9 Nights",
     rating: 4.8,
     reviews: 156,
     category: ["cultural-immersion"],
-    image: "https://images.unsplash.com/photo-1526392060635-9d6019884377?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    image:
+      "https://images.unsplash.com/photo-1526392060635-9d6019884377?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
     badge: "Cultural Immersion",
     badgeColor: "teal",
     includes: [
@@ -325,7 +345,8 @@ const culturalImmersionPackages: PackageType[] = [
     rating: 5.0,
     reviews: 89,
     category: ["cultural-immersion"],
-    image: "https://images.unsplash.com/photo-1570197788417-0e82375c9371?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    image:
+      "https://images.unsplash.com/photo-1570197788417-0e82375c9371?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
     badge: "Cultural Immersion",
     badgeColor: "teal",
     includes: [
@@ -335,7 +356,7 @@ const culturalImmersionPackages: PackageType[] = [
       "Potala Palace access",
       "Traditional Tibetan ceremonies",
     ],
-  }
+  },
 ];
 
 // Private Suite Packages
@@ -343,13 +364,15 @@ const privateSuitePackages: PackageType[] = [
   {
     id: "bali-private-villa",
     title: "Bali Private Cliff Villa",
-    description: "7 nights in exclusive clifftop villa with personal chef and butler",
+    description:
+      "7 nights in exclusive clifftop villa with personal chef and butler",
     price: 8599,
     duration: "7 Days / 6 Nights",
     rating: 5.0,
     reviews: 89,
     category: ["private"],
-    image: "https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    image:
+      "https://images.unsplash.com/photo-1674305906192-f56242c45ae2?q=80&w=853&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     badge: "Private Suite",
     badgeColor: "emerald",
     includes: [
@@ -363,13 +386,15 @@ const privateSuitePackages: PackageType[] = [
   {
     id: "iceland-glass-igloo",
     title: "Iceland Glass Igloo Suite",
-    description: "5 nights hunting Northern Lights in luxury glass accommodation",
+    description:
+      "5 nights hunting Northern Lights in luxury glass accommodation",
     price: 6299,
     duration: "5 Days / 4 Nights",
     rating: 4.9,
     reviews: 123,
     category: ["private"],
-    image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    image:
+      "https://plus.unsplash.com/premium_photo-1752279978264-1bd77d68f4e1?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     badge: "Private Suite",
     badgeColor: "emerald",
     includes: [
@@ -383,13 +408,15 @@ const privateSuitePackages: PackageType[] = [
   {
     id: "norway-fjord-suite",
     title: "Norway Fjords Private Suite",
-    description: "9 days in luxury fjordside accommodation with scenic railways",
+    description:
+      "9 days in luxury fjordside accommodation with scenic railways",
     price: 9299,
     duration: "9 Days / 8 Nights",
     rating: 4.8,
     reviews: 167,
     category: ["private"],
-    image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    image:
+      "https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
     badge: "Private Suite",
     badgeColor: "emerald",
     includes: [
@@ -409,7 +436,8 @@ const privateSuitePackages: PackageType[] = [
     rating: 4.7,
     reviews: 145,
     category: ["private"],
-    image: "https://images.unsplash.com/photo-1520637836862-4d197d17c50a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    image:
+      "https://plus.unsplash.com/premium_photo-1694475710456-682ba042cb7b?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     badge: "Private Suite",
     badgeColor: "emerald",
     includes: [
@@ -419,11 +447,17 @@ const privateSuitePackages: PackageType[] = [
       "Wildlife photography",
       "Gourmet outdoor dining",
     ],
-  }
+  },
 ];
 
 interface PackageGridProps {
-  category: "all" | "ultra-luxury" | "wine-master" | "cultural" | "cultural-immersion" | "private-suite";
+  category:
+    | "all"
+    | "ultra-luxury"
+    | "wine-master"
+    | "cultural"
+    | "cultural-immersion"
+    | "private-suite";
 }
 
 export default function PackageGrid({ category }: PackageGridProps) {
@@ -446,7 +480,7 @@ export default function PackageGrid({ category }: PackageGridProps) {
           ...wineMasterPackages.slice(0, 2),
           ...culturalPackages.slice(0, 2),
           ...culturalImmersionPackages.slice(0, 2),
-          ...privateSuitePackages.slice(0, 2)
+          ...privateSuitePackages.slice(0, 2),
         ];
     }
   };
